@@ -3,7 +3,7 @@ import MainTemplate from 'templates/MainTemplate';
 
 const IndexPage = () => (
   <MainTemplate>
-    <h1>Hello world, hello Nathalie Jones!</h1>
+    <h1>YO YO</h1>
   </MainTemplate>
 );
 

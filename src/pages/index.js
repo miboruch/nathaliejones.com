@@ -1,20 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import MainTemplate from 'templates/MainTemplate';
-
-const StyledHeading = styled.h1`
-  font-family: ${({ theme }) => theme.font.family.raleway};
-`;
-
-const StyledParahraph = styled.p`
-  font-family: ${({ theme }) => theme.font.family.raleway};
-  font-weight: ${({ theme }) => theme.font.weight.regular};
-`;
+import HeroTemplate from 'templates/HeroTemplate/HeroTemplate';
 
 const IndexPage = () => (
   <MainTemplate>
-    <StyledHeading>Hello world, hello Nathalie Jones!</StyledHeading>
-    <StyledParahraph>siemano</StyledParahraph>
+    <HeroTemplate />
+    <h1>SIMEONE</h1>
   </MainTemplate>
 );
 
