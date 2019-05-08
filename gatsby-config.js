@@ -23,6 +23,18 @@ module.exports = {
         displayName: true,
       },
     },
+    // {
+    //   resolve: 'gatsby-plugin-prefetch-google-fonts',
+    //   options: {
+    //     fonts: [
+    //       {
+    //         family: 'Montserrat',
+    //         subsets: ['sans-serif'],
+    //         variants: ['400', '700']
+    //       },
+    //     ],
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-eslint',
       options: {
