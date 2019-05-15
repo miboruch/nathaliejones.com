@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets/styles/theme';
 import SEO from 'components/SEO/SEO';
 import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
 
 const MainTemplate = ({ children }) => (
   <>
@@ -12,8 +13,9 @@ const MainTemplate = ({ children }) => (
     <GlobalStyle />
     <ThemeProvider theme={theme}>
       <>
-        <Header></Header>
+        <Header />
         {children}
+        <Footer />
       </>
     </ThemeProvider>
   </>

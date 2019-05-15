@@ -1,10 +1,16 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  @font-face{
+  ${'' /* @font-face{
     font-family: 'Raleway', sans-serif;
     src: url('../fonts/raleway-regular.woff2') format('woff2'),
          url('../fonts/raleway-regular.woff') format('woff');
+    font-style: normal;
+  } */}
+  @font-face{
+    font-family: 'Advent Pro', sans-serif;
+    src: url('../fonts/advent-bold.woff2') format('woff2'),
+         url('../fonts/advent-bold.woff') format('woff');
     font-style: normal;
   }
   
@@ -16,6 +22,8 @@ const GlobalStyle = createGlobalStyle`
 
   html{
     font-size: 62.5%;
+    margin: 0;
+    
   }
 
   body{

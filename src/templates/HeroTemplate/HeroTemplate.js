@@ -1,25 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import MainContent from 'components/MainContent/MainContent';
+import Info from 'components/Info/Info';
 
 const StyledWrapper = styled.div`
-  width: 100%;
-  height: 100vh;
-  background-color: ${({ theme }) => theme.grey};
-  display: flex;
+  width: 95%;
+  margin: auto;
+  background-color: ${({ theme }) => theme.white};
   align-items: center;
-  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
 `;
 
-const StyledHeading = styled.h1`
-  margin: 0;
-  padding: 0;
-  font-size: ${({ theme }) => theme.font.size.large};
-`;
-
-const HeroTemplate = () => (
+const HeroTemplate = ({ image }) => (
   <StyledWrapper>
-    <StyledHeading>Hello</StyledHeading>
+    <MainContent image = {image}/>
+    <Info />
   </StyledWrapper>
 );
+
+HeroTemplate.propTypes = {
+  image: PropTypes.node.isRequired,
+};
 
 export default HeroTemplate;

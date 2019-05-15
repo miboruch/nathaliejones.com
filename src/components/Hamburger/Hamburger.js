@@ -1,41 +1,59 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledHamburger = styled.button`
   border: none;
   background: none;
   padding: 10px;
+  cursor: pointer;
+  z-index: 9999;
 `;
 
 const InnerHamburger = styled.div`
   position: relative;
   width: 22px;
-  height: 1px;
-  background-color: ${({ theme }) => theme.black};
+  height: 2px;
+  background-color: ${({ theme, isOpen }) => isOpen ? 'transparent' : theme.black};
+  transition: background-color .15s ease-in;
 
-  ::after, ::before{
+  ::after,
+  ::before {
     content: '';
     position: absolute;
     left: 0;
     width: 22px;
-    height: 1px;
+    height: 2px;
     background-color: ${({ theme }) => theme.black};
+    transition: transform .25s ease-in-out;
   }
 
-  ::before{
+  ::before {
     top: -6px;
+    transform: translateY(${({isOpen})=> isOpen ? '6px' : '0'}) 
+    rotate(${({isOpen}) => isOpen ? '45deg': '0'});
+
   }
 
-  ::after{
+  ::after {
     top: 6px;
+    transform: translateY(${({isOpen})=> isOpen ? '-6px' : '0'})
+    rotate(${({isOpen}) => isOpen ? '-45deg': '0'});
   }
-
 `;
 
-const Hamburger = () => (
-  <StyledHamburger>
-    <InnerHamburger></InnerHamburger>
+const Hamburger = ({isOpen, ...props}) => (
+  <StyledHamburger {...props}>
+    <InnerHamburger isOpen={isOpen}/>
   </StyledHamburger>
 );
+
+Hamburger.propTypes = {
+  isOpen: PropTypes.bool,
+};
+
+Hamburger.defaultProps = {
+  isOpen: false,
+};
 
 export default Hamburger;
