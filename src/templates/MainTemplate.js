@@ -21,6 +21,7 @@ const MainTemplate = ({ children }) => (
   </>
 );
 
+
 MainTemplate.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),

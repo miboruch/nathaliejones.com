@@ -11,7 +11,7 @@ export const theme = {
     size: {
       xsmall: '.9rem',
       small: '1.4rem',
-      medium: '1.8rem',
+      medium: '2.3rem',
       large: '3.5rem',
       xlarge: '6.2rem',
     },
@@ -25,8 +25,8 @@ export const theme = {
       bold: '700',
     },
   },
-  mq:{
+  mq: {
     tablet: '@media all and (min-width: 612px)',
-    desktop: '@media all and (min-width: 1024px)',
-  }
+    desktop: '@media all and (min-width: 1080px)',
+  },
 };

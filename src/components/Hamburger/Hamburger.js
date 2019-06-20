@@ -14,8 +14,9 @@ const InnerHamburger = styled.div`
   position: relative;
   width: 22px;
   height: 2px;
-  background-color: ${({ theme, isOpen }) => isOpen ? 'transparent' : theme.black};
-  transition: background-color .15s ease-in;
+  background-color: ${({ theme, isOpen }) =>
+    isOpen ? 'transparent' : theme.black};
+  transition: background-color 0.15s ease-in;
 
   ::after,
   ::before {
@@ -25,26 +26,25 @@ const InnerHamburger = styled.div`
     width: 22px;
     height: 2px;
     background-color: ${({ theme }) => theme.black};
-    transition: transform .25s ease-in-out;
+    transition: transform 0.25s ease-in-out;
   }
 
   ::before {
     top: -6px;
-    transform: translateY(${({isOpen})=> isOpen ? '6px' : '0'}) 
-    rotate(${({isOpen}) => isOpen ? '45deg': '0'});
-
+    transform: translateY(${({ isOpen }) => (isOpen ? '6px' : '0')})
+      rotate(${({ isOpen }) => (isOpen ? '45deg' : '0')});
   }
 
   ::after {
     top: 6px;
-    transform: translateY(${({isOpen})=> isOpen ? '-6px' : '0'})
-    rotate(${({isOpen}) => isOpen ? '-45deg': '0'});
+    transform: translateY(${({ isOpen }) => (isOpen ? '-6px' : '0')})
+      rotate(${({ isOpen }) => (isOpen ? '-45deg' : '0')});
   }
 `;
 
-const Hamburger = ({isOpen, ...props}) => (
+const Hamburger = ({ isOpen, ...props }) => (
   <StyledHamburger {...props}>
-    <InnerHamburger isOpen={isOpen}/>
+    <InnerHamburger isOpen={isOpen} />
   </StyledHamburger>
 );
 
