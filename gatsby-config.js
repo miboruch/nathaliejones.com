@@ -24,6 +24,13 @@ module.exports = {
         displayName: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `lightblue`,
+        showSpinner: true,
+      },
+    },
     // {
     //   resolve: 'gatsby-plugin-prefetch-google-fonts',
     //   options: {

@@ -33,15 +33,11 @@ const VideoWrapper = styled.div`
   width: 95%;
   margin: auto;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  padding: 80px 0;
-
-  ${({ theme }) => theme.mq.tablet}{
-    justify-content: center;
-  }
+  padding: 20px 0;
 
   ${({ theme }) => theme.mq.desktop}{
+    margin: auto;
     flex-direction: row;
     flex-wrap: wrap;
   }
@@ -54,14 +50,14 @@ const StyledVideo = styled.iframe`
 
   ${({ theme }) => theme.mq.tablet}{
     width: 100%;
-    height: 400px;
+    height: 500px;
     justify-content: center;
   }
 
   ${({ theme }) => theme.mq.desktop}{
-    width: 100%;
-    height: 800px;
-    justify-content: center;
+    width: 75%;
+    height: 600px;
+    margin: 5rem auto;
   }
 `;
 
@@ -71,13 +67,13 @@ const MainDemoContent = () => (
     <ButtonWrapper>
       <StyledButton
         as="a"
-        href="static/Acting.pdf"
+        href="assets/documents/Acting.pdf"
         download="Acting Package">
         DOWNLOAD ACTING PACKAGE
       </StyledButton>
       <StyledButton
         as="a"
-        href="static/Headshots.pdf"
+        href="assets/documents/Headshots.pdf"
         download="Headshots and resume">
         DOWNLOAD HEADSHOTS AND RESUME
       </StyledButton>
@@ -88,11 +84,15 @@ const MainDemoContent = () => (
       frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
       allowfullscreen></StyledVideo>
 
-      <StyledVideo width="700" height="400" src="https://www.youtube.com/embed/CHQc-AnxmRg" 
+      <StyledVideo width="700" height="400" src="https://www.youtube.com/embed/g6AN8mNDs8I" 
       frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
       allowfullscreen></StyledVideo>
 
-      <StyledVideo width="700" height="400" src="https://www.youtube.com/embed/tQwQ__0bdkc" 
+      <StyledVideo width="700" height="400" src="https://www.youtube.com/embed/7PxVaam09Kk" 
+      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></StyledVideo>
+
+      <StyledVideo width="700" height="400" src="https://www.youtube.com/embed/e45_Cn1p2aE" 
       frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
       allowfullscreen></StyledVideo>
     </VideoWrapper>

@@ -22,7 +22,7 @@ export const pageModelingImage = graphql`
 
 export const query = graphql`
   query {
-    image4: file(name: { regex: "/natalia1/" }) {
+    image4: file(name: { regex: "/natalia19/" }) {
       ...pageModelingImage
     }
     image5: file(name: { regex: "/natalia2/" }) {

@@ -5,7 +5,7 @@ const information = [
   {
     title: 'About',
     description:
-      "Nathalie Jones is an international actress. Was born on January 28, 1995 in Tarnow, Malopolskie, Poland.  She attended The Crakow School of Art. During her first year of acting education she already got involved in theatre and TV show productions.  After Establishing her Business and Management Skills in London Nathalie decided to follow her passion for acting and moved to Los Angeles. Since then she has worked in numerous productions including Film, New Media, Commercial and Print. She also enjoys writing and producing proprietary content.",
+      "Nathalie Jones is an international actress born on January 28, 1995 in Tarnow, Malopolskie, Poland. She attended The Crakow School of Art. During her first year of her acting education, she already got involved in theatre and TV show productions. After establishing her business and management skills in London, Nathalie decided to follow her passion for acting and moved to Los Angeles. Since then, she has worked in numerous productions in the fields of Film, New Media, Commercial and Print. She also enjoys writing and producing proprietary content.",
   },
 ];
 

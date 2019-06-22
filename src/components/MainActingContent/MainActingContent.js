@@ -29,7 +29,7 @@ const StyledImage = styled(Img)`
   filter: none;
 
   ${({ theme }) => theme.mq.desktop}{
-    width: 500px;
+    width: 800px;
     margin: .4em;
   }
 `;
@@ -67,13 +67,13 @@ const MainActingContent = ({image}) => (
     <ButtonWrapper>
       <StyledButton
         as="a"
-        href="static/Acting.pdf"
+        href="assets/documents/Acting.pdf"
         download="Acting Package">
         DOWNLOAD ACTING PACKAGE
       </StyledButton>
       <StyledButton
         as="a"
-        href="static/Headshots.pdf"
+        href="assets/documents/Headshots.pdf"
         download="Headshots and resume">
         DOWNLOAD HEADSHOTS AND RESUME
       </StyledButton>

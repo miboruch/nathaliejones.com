@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
 import Hamburger from 'components/Hamburger/Hamburger';
 import MobileMenu from 'components/MobileMenu/MobileMenu';
@@ -83,7 +82,7 @@ const StyledLink = styled(Link)`
 
 /* Koniec stylowania hedeara dla desktopa */
 
-const Header = ({data}) => {
+const Header = () => {
   const [isMenuOpen, setState] = useState(false);
 
   const toggleMenu = () => {
@@ -93,7 +92,6 @@ const Header = ({data}) => {
   return (
     <StyledHeader>
       <StyledLink to={'/'}><StyledHeading>Nathalie Jones</StyledHeading></StyledLink>
-      {/* <StyledLink to={'/'}><Img fluid = {data.logo.childImageSharp.fluid} /></StyledLink> */}
       <StyledHamburger onClick={toggleMenu} isOpen={isMenuOpen} />
         
         <StyledNav>

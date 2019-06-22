@@ -53,7 +53,7 @@ const MainModelingContent = ({image}) => (
     <ButtonWrapper>
     <StyledButton
         as="a"
-        href="static/Modeling.pdf"
+        href="assets/documents/Modeling.pdf"
         download="Modeling Package">
         DOWNLOAD MODELING PACKAGE
     </StyledButton>
@@ -64,7 +64,6 @@ const MainModelingContent = ({image}) => (
     <ImageWrapper>
       <StyledImage fluid = {image.image4.childImageSharp.fluid} />
       <ModelingInfo></ModelingInfo>
-      {/* <StyledImage fluid = {image.image13.childImageSharp.fluid} /> */}
       <StyledImage fluid = {image.image5.childImageSharp.fluid} />
       <StyledImage fluid = {image.image6.childImageSharp.fluid} />
       <StyledImage fluid = {image.image7.childImageSharp.fluid} />

@@ -25,7 +25,7 @@ export const query = graphql`
     image1: file(name: { regex: "/headshot1/" }) {
       ...pageImage
     }
-    image2: file(name: { regex: "/headshot2/" }) {
+    image2: file(name: { regex: "/headshot23/" }) {
       ...pageImage
     }
     image3: file(name: { regex: "/headshot3/" }) {
