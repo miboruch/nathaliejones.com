@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
-import { graphql } from 'gatsby';
+import { Link , graphql } from 'gatsby';
+
 import Hamburger from 'components/Hamburger/Hamburger';
 import MobileMenu from 'components/MobileMenu/MobileMenu';
 
@@ -27,7 +27,7 @@ const StyledHeading = styled.h1`
 `;
 
 const StyledHamburger = styled(Hamburger)`
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     display: none; /* Hamburger menu dla desktopa nie wyswietla sie */
   }
 `;
@@ -37,7 +37,7 @@ const StyledNav = styled.nav`
   display: none;
   align-items: center;
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     display: block;
   }
 `;
@@ -75,7 +75,7 @@ const StyledLink = styled(Link)`
   color: ${({ theme }) => theme.black};
   text-decoration: none;
 
-  :first-child{
+  :first-child {
     font-weight: ${({ theme }) => theme.font.weight.bold};
   }
 `;
@@ -91,18 +91,30 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <StyledLink to={'/'}><StyledHeading>Nathalie Jones</StyledHeading></StyledLink>
+      <StyledLink to="/">
+        <StyledHeading>Nathalie Jones</StyledHeading>
+      </StyledLink>
       <StyledHamburger onClick={toggleMenu} isOpen={isMenuOpen} />
-        
-        <StyledNav>
-          <StyledList>
-            <StyledLink to='/'><StyledListItem>Home</StyledListItem></StyledLink>
-            <StyledLink to='/acting'><StyledListItem>Acting</StyledListItem></StyledLink>
-            <StyledLink to='/modeling'><StyledListItem>Modeling</StyledListItem></StyledLink>
-            <StyledLink to='/demoreels'><StyledListItem>Demo reels</StyledListItem></StyledLink>
-            <StyledLink to='/contact'><StyledListItem>Contact</StyledListItem></StyledLink>
-          </StyledList>
-        </StyledNav>
+
+      <StyledNav>
+        <StyledList>
+          <StyledLink to="/">
+            <StyledListItem>Home</StyledListItem>
+          </StyledLink>
+          <StyledLink to="/acting">
+            <StyledListItem>Acting</StyledListItem>
+          </StyledLink>
+          <StyledLink to="/modeling">
+            <StyledListItem>Modeling</StyledListItem>
+          </StyledLink>
+          <StyledLink to="/demoreels">
+            <StyledListItem>Demo reels</StyledListItem>
+          </StyledLink>
+          <StyledLink to="/contact">
+            <StyledListItem>Contact</StyledListItem>
+          </StyledLink>
+        </StyledList>
+      </StyledNav>
 
       <MobileMenu isOpen={isMenuOpen} />
     </StyledHeader>
@@ -130,6 +142,5 @@ export const query = graphql`
 `;
 
 //----------------------
-
 
 export default Header;

@@ -14,7 +14,7 @@ const ImageWrapper = styled.div`
   width: 100%;
   padding-bottom: 4em;
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -28,12 +28,11 @@ const StyledImage = styled(Img)`
   margin: 1em 0;
   filter: none;
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     width: 800px;
-    margin: .4em;
+    margin: 0.4em;
   }
 `;
-
 
 const ButtonWrapper = styled.div`
   width: 100%;
@@ -44,51 +43,52 @@ const ButtonWrapper = styled.div`
   margin-top: 80px;
   margin-bottom: 50px;
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     width: 40%;
   }
-
 `;
 
 const StyledButton = styled(Button)`
-  margin: .5em 0;
+  margin: 0.5em 0;
 
   ${({ theme }) => theme.mq.tablet} {
     width: 100%;
   }
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     width: 100%;
   }
 `;
 
-const MainActingContent = ({image}) => (
+const MainActingContent = ({ image }) => (
   <StyledWrapper>
     <ButtonWrapper>
       <StyledButton
         as="a"
-        href="assets/documents/Acting.pdf"
-        download="Acting Package">
+        href="/documents/Acting.pdf"
+        download="Acting Package"
+      >
         DOWNLOAD ACTING PACKAGE
       </StyledButton>
       <StyledButton
         as="a"
-        href="assets/documents/Headshots.pdf"
-        download="Headshots and resume">
+        href="/documents/Headshots.pdf"
+        download="Headshots and resume"
+      >
         DOWNLOAD HEADSHOTS AND RESUME
       </StyledButton>
     </ButtonWrapper>
 
     <ImageWrapper>
-      <StyledImage fluid = {image.image13.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image14.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image15.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image16.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image17.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image18.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image19.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image20.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image21.childImageSharp.fluid} />
+      <StyledImage fluid={image.image13.childImageSharp.fluid} />
+      <StyledImage fluid={image.image14.childImageSharp.fluid} />
+      <StyledImage fluid={image.image15.childImageSharp.fluid} />
+      <StyledImage fluid={image.image16.childImageSharp.fluid} />
+      <StyledImage fluid={image.image17.childImageSharp.fluid} />
+      <StyledImage fluid={image.image18.childImageSharp.fluid} />
+      <StyledImage fluid={image.image19.childImageSharp.fluid} />
+      <StyledImage fluid={image.image20.childImageSharp.fluid} />
+      <StyledImage fluid={image.image21.childImageSharp.fluid} />
     </ImageWrapper>
   </StyledWrapper>
 );

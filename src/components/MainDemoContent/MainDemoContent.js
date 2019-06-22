@@ -36,7 +36,7 @@ const VideoWrapper = styled.div`
   flex-direction: column;
   padding: 20px 0;
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     margin: auto;
     flex-direction: row;
     flex-wrap: wrap;
@@ -48,56 +48,76 @@ const StyledVideo = styled.iframe`
   height: 300px;
   margin-bottom: 2rem;
 
-  ${({ theme }) => theme.mq.tablet}{
+  ${({ theme }) => theme.mq.tablet} {
     width: 100%;
     height: 500px;
     justify-content: center;
   }
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     width: 75%;
     height: 600px;
     margin: 5rem auto;
   }
 `;
 
-
 const MainDemoContent = () => (
   <StyledWrapper>
     <ButtonWrapper>
       <StyledButton
         as="a"
-        href="assets/documents/Acting.pdf"
-        download="Acting Package">
+        href="/documents/Acting.pdf"
+        download="Acting Package"
+      >
         DOWNLOAD ACTING PACKAGE
       </StyledButton>
       <StyledButton
         as="a"
-        href="assets/documents/Headshots.pdf"
-        download="Headshots and resume">
+        href="/documents/Headshots.pdf"
+        download="Headshots and resume"
+      >
         DOWNLOAD HEADSHOTS AND RESUME
       </StyledButton>
     </ButtonWrapper>
 
     <VideoWrapper>
-      <StyledVideo width="700" height="400" src="https://www.youtube.com/embed/K9ShlHKGRZc" 
-      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-      allowfullscreen></StyledVideo>
+      <StyledVideo
+        width="700"
+        height="400"
+        src="https://www.youtube.com/embed/K9ShlHKGRZc"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
 
-      <StyledVideo width="700" height="400" src="https://www.youtube.com/embed/g6AN8mNDs8I" 
-      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-      allowfullscreen></StyledVideo>
+      <StyledVideo
+        width="700"
+        height="400"
+        src="https://www.youtube.com/embed/g6AN8mNDs8I"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
 
-      <StyledVideo width="700" height="400" src="https://www.youtube.com/embed/7PxVaam09Kk" 
-      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-      allowfullscreen></StyledVideo>
+      <StyledVideo
+        width="700"
+        height="400"
+        src="https://www.youtube.com/embed/7PxVaam09Kk"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
 
-      <StyledVideo width="700" height="400" src="https://www.youtube.com/embed/e45_Cn1p2aE" 
-      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-      allowfullscreen></StyledVideo>
+      <StyledVideo
+        width="700"
+        height="400"
+        src="https://www.youtube.com/embed/e45_Cn1p2aE"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
     </VideoWrapper>
   </StyledWrapper>
 );
-
 
 export default MainDemoContent;

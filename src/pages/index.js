@@ -31,7 +31,7 @@ export const query = graphql`
     image3: file(name: { regex: "/headshot3/" }) {
       ...pageImage
     }
-   }
+  }
 `;
 
 IndexPage.propTypes = {

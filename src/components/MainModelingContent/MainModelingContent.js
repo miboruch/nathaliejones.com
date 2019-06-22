@@ -15,7 +15,7 @@ const ImageWrapper = styled.div`
   width: 100%;
   padding-bottom: 4em;
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -29,9 +29,9 @@ const StyledImage = styled(Img)`
   margin: 1em 0;
   filter: none;
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     width: 800px;
-    margin: .4em;
+    margin: 0.4em;
   }
 `;
 
@@ -48,30 +48,29 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const MainModelingContent = ({image}) => (
+const MainModelingContent = ({ image }) => (
   <StyledWrapper>
     <ButtonWrapper>
-    <StyledButton
+      <StyledButton
         as="a"
-        href="assets/documents/Modeling.pdf"
-        download="Modeling Package">
+        href="/documents/Modeling.pdf"
+        download="Modeling Package"
+      >
         DOWNLOAD MODELING PACKAGE
-    </StyledButton>
+      </StyledButton>
     </ButtonWrapper>
 
-    
-
     <ImageWrapper>
-      <StyledImage fluid = {image.image4.childImageSharp.fluid} />
-      <ModelingInfo></ModelingInfo>
-      <StyledImage fluid = {image.image5.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image6.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image7.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image8.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image9.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image10.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image11.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image12.childImageSharp.fluid} />
+      <StyledImage fluid={image.image4.childImageSharp.fluid} />
+      <ModelingInfo />
+      <StyledImage fluid={image.image5.childImageSharp.fluid} />
+      <StyledImage fluid={image.image6.childImageSharp.fluid} />
+      <StyledImage fluid={image.image7.childImageSharp.fluid} />
+      <StyledImage fluid={image.image8.childImageSharp.fluid} />
+      <StyledImage fluid={image.image9.childImageSharp.fluid} />
+      <StyledImage fluid={image.image10.childImageSharp.fluid} />
+      <StyledImage fluid={image.image11.childImageSharp.fluid} />
+      <StyledImage fluid={image.image12.childImageSharp.fluid} />
     </ImageWrapper>
   </StyledWrapper>
 );

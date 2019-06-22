@@ -24,20 +24,19 @@ const ButtonWrapper = styled.div`
   margin-top: 100px;
   margin-bottom: 50px;
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     width: 40%;
   }
-
 `;
 
 const StyledButton = styled(Button)`
-  margin: .5em 0;
+  margin: 0.5em 0;
 
   ${({ theme }) => theme.mq.tablet} {
     width: 100%;
   }
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     width: 100%;
   }
 `;
@@ -48,13 +47,15 @@ const HeroTemplate = ({ image }) => (
       <StyledButton
         as="a"
         href="/documents/Acting.pdf"
-        download="Acting Package">
+        download="Acting Package"
+      >
         DOWNLOAD ACTING PORTFOLIO
       </StyledButton>
       <StyledButton
         as="a"
-        href="assets/documents/Modeling.pdf"
-        download="Headshots and resume">
+        href="/documents/Modeling.pdf"
+        download="Headshots and resume"
+      >
         DOWNLOAD HEADSHOTS AND RESUME
       </StyledButton>
     </ButtonWrapper>

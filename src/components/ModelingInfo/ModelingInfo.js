@@ -21,7 +21,6 @@ const InfoWrapper = styled.div`
   padding: 2em 0;
 `;
 
-
 const StyledDescription = styled.p`
   font-weight: ${({ theme }) => theme.font.weight.regular};
   letter-spacing: 1px;
@@ -31,7 +30,7 @@ const StyledDescription = styled.p`
 
 const Info = () => (
   <StyledWrapper>
-    {information.map(({description}) => (
+    {information.map(({ description }) => (
       <InfoWrapper>
         <StyledDescription>{description}</StyledDescription>
       </InfoWrapper>
