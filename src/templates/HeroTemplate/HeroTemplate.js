@@ -46,14 +46,14 @@ const HeroTemplate = ({ image }) => (
     <ButtonWrapper>
       <StyledButton
         as="a"
-        href="/static/documents/Acting.pdf"
+        href="/documents/Acting.pdf"
         download="Acting Package"
       >
         DOWNLOAD ACTING PORTFOLIO
       </StyledButton>
       <StyledButton
         as="a"
-        href="/static/documents/Modeling.pdf"
+        href="/documents/Modeling.pdf"
         download="Headshots and resume"
       >
         DOWNLOAD HEADSHOTS AND RESUME

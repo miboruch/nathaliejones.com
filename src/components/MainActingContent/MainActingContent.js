@@ -65,14 +65,14 @@ const MainActingContent = ({ image }) => (
     <ButtonWrapper>
       <StyledButton
         as="a"
-        href="/static/documents/Acting.pdf"
+        href="/documents/Acting.pdf"
         download="Acting Package"
       >
         DOWNLOAD ACTING PACKAGE
       </StyledButton>
       <StyledButton
         as="a"
-        href="/static/documents/Headshots.pdf"
+        href="/documents/Headshots.pdf"
         download="Headshots and resume"
       >
         DOWNLOAD HEADSHOTS AND RESUME

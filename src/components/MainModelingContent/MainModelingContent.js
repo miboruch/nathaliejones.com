@@ -53,7 +53,7 @@ const MainModelingContent = ({ image }) => (
     <ButtonWrapper>
       <StyledButton
         as="a"
-        href="/static/documents/Modeling.pdf"
+        href="/documents/Modeling.pdf"
         download="Modeling Package"
       >
         DOWNLOAD MODELING PACKAGE
