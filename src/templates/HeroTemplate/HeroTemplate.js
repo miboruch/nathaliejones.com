@@ -53,7 +53,7 @@ const HeroTemplate = ({ image }) => (
       </StyledButton>
       <StyledButton
         as="a"
-        href="/documents/Modeling.pdf"
+        href="/documents/Headshots.pdf"
         download="Headshots and resume"
       >
         DOWNLOAD HEADSHOTS AND RESUME
