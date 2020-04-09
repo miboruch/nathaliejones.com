@@ -6,19 +6,20 @@
     "prettier",
     "prettier/react"
   ],
-  "globals":{
+  "globals": {
     "window": true,
     "document": true
   },
-  "settings":{
+  "settings": {
     "import/resolver": {
-      "node":{
-        "paths":["./src"],
-        "extensions":[".js"]
+      "node": {
+        "paths": ["./src"],
+        "extensions": [".js"]
       }
     }
   },
   "rules": {
-    "react/jsx-filename-extension": 0
+    "react/jsx-filename-extension": 0,
+    "react/no-array-index-key": 0
   }
 }

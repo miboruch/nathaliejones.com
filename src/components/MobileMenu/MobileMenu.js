@@ -4,20 +4,24 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
 const StyledWrapper = styled.div`
-  display: flex;
+  width: 100vw;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(255,255,255,.9);
-  z-index: 998;
+  display: flex;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 98;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100%')});
-  transition: transform 0.4s ease-in-out;
-  `;
+  transition: transform 0.4s ease;
+
+  ${({ theme }) => theme.mq.standard} {
+    display: none;
+  }
+`;
 
 const MenuLinkWrapper = styled.ul`
   text-align: center;
@@ -39,7 +43,6 @@ const MenuLinkWrapper = styled.ul`
 `;
 
 const StyledListItem = styled.li`
-  font-family: ${({ theme }) => theme.font.family.raleway};
   font-weight: ${({ theme }) => theme.font.weight.bold};
   font-size: ${({ theme }) => theme.font.size.medium};
   padding: 1em 0;
@@ -48,7 +51,7 @@ const StyledListItem = styled.li`
   opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
   transition: opacity 1s 0.3s ease-in-out;
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     transition: opacity 1s 0.5s ease-in-out;
   }
 `;
@@ -58,24 +61,36 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-const MobileMenu = ({ isOpen }) => (
-  <StyledWrapper isOpen={isOpen}>
-    <MenuLinkWrapper>
-      <StyledLink to ='/'><StyledListItem isOpen={isOpen}>HOME</StyledListItem></StyledLink>
-      <StyledLink to ='/acting'><StyledListItem isOpen={isOpen}>acting</StyledListItem></StyledLink>
-      <StyledLink to ='/modeling'><StyledListItem isOpen={isOpen}>modeling</StyledListItem></StyledLink>
-      <StyledLink to ='/demoreels'><StyledListItem isOpen={isOpen}>demo reels</StyledListItem></StyledLink>
-      <StyledLink to ='/contact'><StyledListItem isOpen={isOpen}>contact</StyledListItem></StyledLink>
-    </MenuLinkWrapper>
-  </StyledWrapper>
-);
+const MobileMenu = ({ isOpen }) => {
+  return (
+    <StyledWrapper isOpen={isOpen}>
+      <MenuLinkWrapper>
+        <StyledLink to='/'>
+          <StyledListItem isOpen={isOpen}>HOME</StyledListItem>
+        </StyledLink>
+        <StyledLink to='/acting'>
+          <StyledListItem isOpen={isOpen}>acting</StyledListItem>
+        </StyledLink>
+        <StyledLink to='/modeling'>
+          <StyledListItem isOpen={isOpen}>modeling</StyledListItem>
+        </StyledLink>
+        <StyledLink to='/demoreels'>
+          <StyledListItem isOpen={isOpen}>demo reels</StyledListItem>
+        </StyledLink>
+        <StyledLink to='/contact'>
+          <StyledListItem isOpen={isOpen}>contact</StyledListItem>
+        </StyledLink>
+      </MenuLinkWrapper>
+    </StyledWrapper>
+  );
+};
 
 MobileMenu.propTypes = {
-  isOpen: PropTypes.bool,
+  isOpen: PropTypes.bool
 };
 
 MobileMenu.defaultProps = {
-  isOpen: false,
+  isOpen: false
 };
 
 export default MobileMenu;

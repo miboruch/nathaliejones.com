@@ -15,7 +15,6 @@ const MainTemplate = ({ children }) => (
       <>
         <Header />
         {children}
-        <Footer />
       </>
     </ThemeProvider>
   </>

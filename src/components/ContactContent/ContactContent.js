@@ -17,19 +17,17 @@ const ImageWrapper = styled.div`
   width: 70%;
   margin: 54px auto;
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     flex-direction: row;
   }
-
 `;
 
 const StyledImage = styled(Img)`
   width: 100%;
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.desktop} {
     width: 50%;
   }
-
 `;
 
 const StyledHeading = styled.h1`
@@ -54,7 +52,7 @@ const StyledBio = styled.div`
     text-decoration: none;
   }
 
-  ${({ theme }) => theme.mq.tablet}{
+  ${({ theme }) => theme.mq.tablet} {
     font-size: ${({ theme }) => theme.font.size.medium};
   }
 `;
@@ -72,16 +70,16 @@ const StyledSecondParagraph = styled.p`
   margin: 0;
 `;
 
-
-const ContactContent = ({image}) => (
+const ContactContent = ({ image }) => (
   <StyledWrapper>
     <ImageWrapper>
-      
-      <StyledImage fluid = {image.contact1.childImageSharp.fluid}/>
+      <StyledImage fluid={image.contact1.childImageSharp.fluid} />
       <StyledBio>
-        <StyledParagraph>Acting is more than a passion. It's a source of excitement and joy...</StyledParagraph>
+        <StyledParagraph>
+          Acting is more than a passion. It's a source of excitement and joy...
+        </StyledParagraph>
         <StyledHeading>For collaboration contact</StyledHeading>
-        <a href="mailto: nathaliejones.info@yahoo.com">
+        <a href='mailto: nathaliejones.info@yahoo.com'>
           nathaliejones.info@yahoo.com
         </a>
         <br />
@@ -94,13 +92,11 @@ const ContactContent = ({image}) => (
         <StyledSecondParagraph>Los Angeles, California</StyledSecondParagraph>
       </StyledBio>
     </ImageWrapper>
-    
   </StyledWrapper>
 );
 
 ContactContent.propTypes = {
-  image: PropTypes.node.isRequired,
+  image: PropTypes.node.isRequired
 };
-
 
 export default ContactContent;

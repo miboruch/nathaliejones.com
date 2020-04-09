@@ -3,57 +3,72 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const StyledHamburger = styled.button`
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
   border: none;
   background: none;
-  padding: 10px;
+  width: 50px;
+  height: 30px;
+  padding: 1rem;
+  box-sizing: content-box;
   cursor: pointer;
-  z-index: 9999;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:focus {
+    outline: none;
+  }
+  
+  ${({theme}) => theme.mq.standard}{
+    display: none;
+  }
 `;
 
 const InnerHamburger = styled.div`
   position: relative;
-  width: 22px;
-  height: 2px;
-  background-color: ${({ theme, isOpen }) =>
-    isOpen ? 'transparent' : theme.black};
-  transition: background-color 0.15s ease-in;
+  transition: background-color 0.15s ease;
 
   ::after,
   ::before {
     content: '';
     position: absolute;
-    left: 0;
-    width: 22px;
-    height: 2px;
+    right: 0;
+    height: 1px;
     background-color: ${({ theme }) => theme.black};
-    transition: transform 0.25s ease-in-out;
+    transition: transform 0.25s ease, width 0.25s ease;
   }
 
   ::before {
-    top: -6px;
-    transform: translateY(${({ isOpen }) => (isOpen ? '6px' : '0')})
-      rotate(${({ isOpen }) => (isOpen ? '45deg' : '0')});
+    width: ${({ isOpen }) => (isOpen ? '32px' : '26px')};
+    top: -3px;
+    transform: translateY(${({ isOpen }) => (isOpen ? '3px' : '0')})
+      rotate(${({ isOpen }) => (isOpen ? '38deg' : '0')});
   }
 
   ::after {
-    top: 6px;
-    transform: translateY(${({ isOpen }) => (isOpen ? '-6px' : '0')})
-      rotate(${({ isOpen }) => (isOpen ? '-45deg' : '0')});
+    width: 32px;
+    top: 3px;
+    transform: translateY(${({ isOpen }) => (isOpen ? '-3px' : '0')})
+      rotate(${({ isOpen }) => (isOpen ? '-38deg' : '0')});
   }
 `;
 
-const Hamburger = ({ isOpen, ...props }) => (
-  <StyledHamburger {...props}>
+const Hamburger = ({ isOpen, toggleMenu }) => (
+  <StyledHamburger onClick={() => toggleMenu()}>
     <InnerHamburger isOpen={isOpen} />
   </StyledHamburger>
 );
 
 Hamburger.propTypes = {
-  isOpen: PropTypes.bool,
+  isOpen: PropTypes.bool
 };
 
 Hamburger.defaultProps = {
-  isOpen: false,
+  isOpen: false
 };
 
 export default Hamburger;

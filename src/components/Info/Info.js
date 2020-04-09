@@ -42,7 +42,7 @@ const StyledDescription = styled.p`
 const Info = () => (
   <StyledWrapper>
     {information.map(({ title, description }) => (
-      <InfoWrapper>
+      <InfoWrapper key={title}>
         <StyledTitle>{title}</StyledTitle>
         <StyledDescription>{description}</StyledDescription>
       </InfoWrapper>

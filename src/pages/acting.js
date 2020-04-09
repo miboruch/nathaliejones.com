@@ -6,7 +6,7 @@ import MainActingContent from 'components/MainActingContent/MainActingContent';
 
 const ActingPage = ({ data }) => (
   <MainTemplate>
-    <MainActingContent image = {data}/>
+    <MainActingContent image={data} />
   </MainTemplate>
 );
 
@@ -52,8 +52,8 @@ export const query = graphql`
   }
 `;
 
-IndexPage.propTypes = {
-  data: PropTypes.node.isRequired,
+ActingPage.propTypes = {
+  data: PropTypes.node.isRequired
 };
 
 export default ActingPage;
