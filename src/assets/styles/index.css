@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Libre Caslon Display';
+  src: url('../../../static/fonts/LibreCaslon.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Libre Caslon Text';
+  src: url('../../../static/fonts/LibreCaslonBold.woff') format('woff');
+  font-weight: 700;
+}

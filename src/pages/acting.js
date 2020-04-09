@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import MainTemplate from 'templates/MainTemplate';
 import MainActingContent from 'components/MainActingContent/MainActingContent';
 
-const IndexPage = ({ data }) => (
+const ActingPage = ({ data }) => (
   <MainTemplate>
     <MainActingContent image = {data}/>
   </MainTemplate>
@@ -56,4 +56,4 @@ IndexPage.propTypes = {
   data: PropTypes.node.isRequired,
 };
 
-export default IndexPage;
+export default ActingPage;

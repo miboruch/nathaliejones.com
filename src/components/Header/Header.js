@@ -20,7 +20,7 @@ const StyledHeader = styled.header`
 `;
 
 const StyledHeading = styled.h1`
-  font-weight: ${({ theme }) => theme.font.weight.bold};
+  font-weight: 400;
   font-size: ${({ theme }) => theme.font.size.medium};
   letter-spacing: 2px;
   margin: 0;
@@ -95,7 +95,7 @@ const Header = ({data}) => {
       <StyledLink to={'/'}><StyledHeading>Nathalie Jones</StyledHeading></StyledLink>
       {/* <StyledLink to={'/'}><Img fluid = {data.logo.childImageSharp.fluid} /></StyledLink> */}
       <StyledHamburger onClick={toggleMenu} isOpen={isMenuOpen} />
-        
+
         <StyledNav>
           <StyledList>
             <StyledLink to='/'><StyledListItem>Home</StyledListItem></StyledLink>
@@ -110,8 +110,6 @@ const Header = ({data}) => {
     </StyledHeader>
   );
 };
-
-//-----------------------
 
 export const headerLogo = graphql`
   fragment headerLogo on File {
@@ -130,8 +128,5 @@ export const query = graphql`
     }
   }
 `;
-
-//----------------------
-
 
 export default Header;

@@ -31,7 +31,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-size: 1.6rem;
-    font-family: 'Raleway', sans-serif;
+    font-family: Libre Caslon Display, sans-serif;
+    font-weight: 400;
   }
 `;
 
