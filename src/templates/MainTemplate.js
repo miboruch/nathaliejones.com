@@ -20,12 +20,11 @@ const MainTemplate = ({ children }) => (
   </>
 );
 
-
 MainTemplate.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
+    PropTypes.node
+  ]).isRequired
 };
 
 export default MainTemplate;

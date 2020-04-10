@@ -81,7 +81,7 @@ const StyledLink = styled(Link)`
 const Header = ({ isOpen, toggleMenu }) => {
   return (
     <StyledHeader>
-      <Hamburger toggleMenu={toggleMenu} isOpen={isOpen} />
+      <Hamburger onClick={toggleMenu} isOpen={isOpen} />
       <StyledLink to='/'>
         <StyledHeading>Nathalie Jones</StyledHeading>
       </StyledLink>

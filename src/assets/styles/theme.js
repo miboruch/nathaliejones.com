@@ -13,17 +13,17 @@ export const theme = {
       small: '1.4rem',
       medium: '2.3rem',
       large: '3.5rem',
-      xlarge: '6.2rem',
+      xlarge: '6.2rem'
     },
     family: {
       raleway: 'Raleway, sans-serif',
-      advent: 'Advent Pro, sans-serif',
+      advent: 'Advent Pro, sans-serif'
     },
     weight: {
       light: '200',
       regular: '400',
-      bold: '700',
-    },
+      bold: '700'
+    }
   },
   mq: {
     mobileL: '@media all and (min-width: 370px)',

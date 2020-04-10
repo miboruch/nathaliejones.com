@@ -22,8 +22,8 @@ const StyledHamburger = styled.button`
   &:focus {
     outline: none;
   }
-  
-  ${({theme}) => theme.mq.standard}{
+
+  ${({ theme }) => theme.mq.standard} {
     display: none;
   }
 `;
@@ -57,8 +57,8 @@ const InnerHamburger = styled.div`
   }
 `;
 
-const Hamburger = ({ isOpen, toggleMenu }) => (
-  <StyledHamburger onClick={() => toggleMenu()}>
+const Hamburger = ({ isOpen, ...props }) => (
+  <StyledHamburger {...props}>
     <InnerHamburger isOpen={isOpen} />
   </StyledHamburger>
 );

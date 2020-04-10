@@ -1,34 +1,42 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import HeroTemplate from '../templates/HeroTemplate/HeroTemplate';
-import Layout from '../templates/Layout';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
+import HeroTemplate from '../templates/HeroTemplate/HeroTemplate';
+import Layout from '../templates/Layout';
 import { convertObjectToArray } from '../../utils/helpers';
 
 const PageWrapper = styled.div`
   width: 100%;
   height: 100vh;
   position: relative;
+  white-space: nowrap;
 `;
 
 const StyledWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
-  display: -webkit-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
   overflow-x: scroll;
-  padding-left: 3rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+
+  ${({ theme }) => theme.mq.standard} {
+    padding-left: 3rem;
+  }
 `;
 
 const StyledImage = styled(Img)`
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90vh;
   margin: 0 0.5rem;
-
-  ${({ theme }) => theme.mq.desktop} {
-    margin: 1em 0.4em;
-  }
 `;
 
 const IndexPage = ({ data }) => {

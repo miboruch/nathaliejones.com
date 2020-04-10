@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const useIsScrollOnTop = () => {
   const [isOnTop, setIsOnTop] = useState(true);
