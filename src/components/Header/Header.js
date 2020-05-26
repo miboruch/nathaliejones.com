@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 
 import Hamburger from '../Hamburger/Hamburger';
 import { useIsScrollOnTop } from '../../../utils/customHooks';
+import PageTransitionProvider from '../../providers/PageTransitionProvider';
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -82,9 +83,10 @@ const Header = ({ isOpen, toggleMenu }) => {
   return (
     <StyledHeader>
       <Hamburger onClick={toggleMenu} isOpen={isOpen} />
-      <StyledLink to='/'>
-        <StyledHeading>Nathalie Jones</StyledHeading>
-      </StyledLink>
+      <PageTransitionProvider to={'/'}>
+        {/*<StyledHeading>Nathalie Jones</StyledHeading>*/}
+        <p>LOGO</p>
+      </PageTransitionProvider>
 
       <StyledNav>
         <StyledList>

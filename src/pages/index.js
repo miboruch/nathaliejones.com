@@ -6,6 +6,7 @@ import Img from 'gatsby-image';
 import { StyledHeading } from '../assets/styles/sharedStyles';
 import Layout from '../templates/Layout';
 import { convertObjectToArray } from '../../utils/helpers';
+import PageTransitionProvider from '../providers/PageTransitionProvider';
 
 const PageWrapper = styled.div`
   width: 100%;
@@ -29,6 +30,7 @@ const StyledParagraph = styled.p`
   font-size: 15px;
   color: #666;
   text-align: center;
+  letter-spacing: 1px;
 `;
 
 const IndexPage = ({ data }) => {
@@ -36,15 +38,14 @@ const IndexPage = ({ data }) => {
   const array = convertObjectToArray(data);
   return (
     <Layout>
-      <PageWrapper>
+      <PageWrapper className={'transition-wrapper'}>
         <StyledParagraph>
           Nathalie Jones is an international model and actress. She started her
           journey with modeling at the age of 15 in Poland. Since then she
           successfully worked both in Commercial and Print.
         </StyledParagraph>
         <StyledHeading>Portfolio</StyledHeading>
-        {/*{array.map(item => (*/}
-        {/*))}*/}
+        <PageTransitionProvider to={'/contact'}>Contact</PageTransitionProvider>
         <StyledImage fluid={image1.childImageSharp.fluid} />
       </PageWrapper>
     </Layout>

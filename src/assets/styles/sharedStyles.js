@@ -19,6 +19,6 @@ export const StyledHeading = styled.h1`
     width: 100%;
     height: 1px;
     background-color: #f5f5f5;
-    transform: translateX(25%);
+    transform: translateX(100px);
   }
 `;

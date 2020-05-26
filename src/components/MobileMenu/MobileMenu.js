@@ -13,6 +13,7 @@ const StyledWrapper = styled.div`
   left: 0;
   background: rgba(255, 255, 255, 0.9);
   z-index: 98;
+  transform: translateX(-100%);
 
   ${({ theme }) => theme.mq.standard} {
     display: none;
@@ -69,7 +70,7 @@ const MobileMenu = ({ isOpen }) => {
   }, [isOpen]);
 
   return (
-    <StyledWrapper isOpen={isOpen} ref={wrapperRef}>
+    <StyledWrapper ref={wrapperRef}>
       <MenuLinkWrapper ref={menuItemsRef}>
         {pageNavigation.map(item => (
           <StyledLink to={item.path} key={item.name} isOpen={isOpen}>

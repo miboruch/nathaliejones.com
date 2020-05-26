@@ -71,27 +71,27 @@ const StyledSecondParagraph = styled.p`
 `;
 
 const ContactContent = ({ image }) => (
-  <StyledWrapper>
+  <StyledWrapper className={'transition-wrapper'}>
     <ImageWrapper>
       <StyledImage fluid={image.contact1.childImageSharp.fluid} />
-      <StyledBio>
-        <StyledParagraph>
-          Acting is more than a passion. It's a source of excitement and joy...
-        </StyledParagraph>
-        <StyledHeading>For collaboration contact</StyledHeading>
-        <a href='mailto: nathaliejones.info@yahoo.com'>
-          nathaliejones.info@yahoo.com
-        </a>
-        <br />
-        US: +1 901-337-1953
-        <br />
-        UK: +44 0751-384-6886
-        <br />
-        PL: +48 609-682-811
-        <br />
-        <StyledSecondParagraph>Los Angeles, California</StyledSecondParagraph>
-      </StyledBio>
     </ImageWrapper>
+    <StyledBio>
+      <StyledParagraph>
+        Acting is more than a passion. It's a source of excitement and joy...
+      </StyledParagraph>
+      <StyledHeading>For collaboration contact</StyledHeading>
+      <a href='mailto: nathaliejones.info@yahoo.com'>
+        nathaliejones.info@yahoo.com
+      </a>
+      <br />
+      US: +1 901-337-1953
+      <br />
+      UK: +44 0751-384-6886
+      <br />
+      PL: +48 609-682-811
+      <br />
+      <StyledSecondParagraph>Los Angeles, California</StyledSecondParagraph>
+    </StyledBio>
   </StyledWrapper>
 );
 
