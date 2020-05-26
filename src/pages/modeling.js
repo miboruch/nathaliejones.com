@@ -6,7 +6,7 @@ import MainModelingContent from '../components/MainModelingContent/MainModelingC
 
 const IndexPage = ({ data }) => (
   <MainTemplate>
-    <MainModelingContent image = {data}>asdasdasd</MainModelingContent>
+    <MainModelingContent image={data}>asdasdasd</MainModelingContent>
   </MainTemplate>
 );
 
@@ -56,8 +56,7 @@ export const query = graphql`
 `;
 
 IndexPage.propTypes = {
-  data: PropTypes.node.isRequired,
+  data: PropTypes.node.isRequired
 };
-
 
 export default IndexPage;

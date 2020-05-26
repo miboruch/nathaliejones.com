@@ -38,8 +38,7 @@ const StyledLink = styled(Link)`
   padding: 1em 0;
   text-transform: uppercase;
   list-style-type: none;
-  opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
-  transition: opacity 1s 0.3s ease-in-out;
+  visibility: hidden;
 `;
 
 const MobileMenu = ({ isOpen }) => {
@@ -49,15 +48,20 @@ const MobileMenu = ({ isOpen }) => {
 
   useEffect(() => {
     const wrapperBox = wrapperRef.current;
-    const menuItems = menuItemsRef.current.children;
+    const menuItems = menuItemsRef.current;
 
-    gsap.set(menuItems, { autoAlpha: 0, x: '-=20' });
+    gsap.set(menuItems.children, { autoAlpha: 0 });
 
     tl.fromTo(
       wrapperBox,
       { transform: 'translateX(-100%)' },
       { transform: 'translateX(0)', duration: 0.7 }
-    ).to(menuItems, { autoAlpha: 1, stagger: 0.2, x: '0', duration: 1 }, '-=0.4');
+    ).fromTo(
+      menuItems.children,
+      { x: '-=10', y: '-=15' },
+      { autoAlpha: 1, x: '0', y: '0', stagger: 0.1, duration: 0.6 },
+      '-=0.4'
+    );
   }, []);
 
   useEffect(() => {
