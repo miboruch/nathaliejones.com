@@ -16,8 +16,7 @@ export const theme = {
       xlarge: '6.2rem'
     },
     family: {
-      raleway: 'Raleway, sans-serif',
-      advent: 'Advent Pro, sans-serif'
+      gilroy: 'Gilroy'
     },
     weight: {
       light: '200',

@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import MainTemplate from 'templates/MainTemplate';
-import MainModelingContent from 'components/MainModelingContent/MainModelingContent';
+import MainTemplate from '../templates/MainTemplate';
+import MainModelingContent from '../components/MainModelingContent/MainModelingContent';
 
 const IndexPage = ({ data }) => (
   <MainTemplate>

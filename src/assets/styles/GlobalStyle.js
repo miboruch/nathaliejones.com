@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-size: 1.6rem;
-    font-family: 'Libre Caslon Display', serif;
+    font-family: 'Gilroy', sans-serif;
   } 
 `;
 
