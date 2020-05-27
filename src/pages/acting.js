@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import MainTemplate from 'templates/MainTemplate';
-import MainActingContent from 'components/MainActingContent/MainActingContent';
+import MainActingContent from '../components/MainActingContent/MainActingContent';
+import Layout from '../templates/Layout';
 
 const ActingPage = ({ data }) => (
-  <MainTemplate>
+  <Layout>
     <MainActingContent image={data} />
-  </MainTemplate>
+  </Layout>
 );
 
 export const pageActingImage = graphql`

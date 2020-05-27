@@ -16,8 +16,7 @@ const StyledButton = styled.button`
   z-index: 1;
   cursor: pointer;
   font-family: 'Gilroy', sans-serif;
-
-/* e0d4c0 */
+  margin-bottom: 2rem;
 
   &:hover {
     color: #fff;
@@ -43,6 +42,11 @@ const StyledButton = styled.button`
   }
   :disabled {
     opacity: 0.5;
+  }
+
+  ${({ theme }) => theme.mq.standard} {
+    margin-bottom: 0;
+    margin-right: 2rem;
   }
 `;
 
