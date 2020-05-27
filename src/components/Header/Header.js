@@ -34,7 +34,7 @@ const StyledNav = styled.nav`
   display: none;
   align-items: center;
 
-  ${({ theme }) => theme.mq.desktop} {
+  ${({ theme }) => theme.mq.standard} {
     display: block;
   }
 `;
