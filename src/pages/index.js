@@ -22,7 +22,7 @@ const StyledImage = styled(Img)`
   width: 100%;
 
   ${({ theme }) => theme.mq.standard} {
-    width: 600px;
+    width: 500px;
   }
 `;
 
@@ -33,8 +33,19 @@ const StyledParagraph = styled.p`
   letter-spacing: 1px;
 `;
 
+const ImageWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  ${({ theme }) => theme.mq.standard} {
+    flex-direction: row;
+  }
+`;
+
 const IndexPage = ({ data }) => {
-  const { image1 } = data;
+  const { image1, image2 } = data;
   const array = convertObjectToArray(data);
   return (
     <Layout>
@@ -46,7 +57,10 @@ const IndexPage = ({ data }) => {
         </StyledParagraph>
         <StyledHeading>Portfolio</StyledHeading>
         <PageTransitionProvider to={'/contact'}>Contact</PageTransitionProvider>
-        <StyledImage fluid={image1.childImageSharp.fluid} />
+        <ImageWrapper>
+          <StyledImage fluid={image1.childImageSharp.fluid} />
+          <StyledImage fluid={image2.childImageSharp.fluid} />
+        </ImageWrapper>
       </PageWrapper>
     </Layout>
   );
@@ -67,9 +81,9 @@ export const query = graphql`
     image1: file(name: { regex: "/headshot1/" }) {
       ...pageImage
     }
-    #    image2: file(name: { regex: "/headshot2/" }) {
-    #      ...pageImage
-    #    }
+    image2: file(name: { regex: "/headshot2/" }) {
+      ...pageImage
+    }
     #    image3: file(name: { regex: "/headshot3/" }) {
     #      ...pageImage
     #    }

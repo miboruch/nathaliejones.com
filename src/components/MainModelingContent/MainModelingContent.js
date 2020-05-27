@@ -2,24 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
-import Button from 'components/Button/Button';
-import ModelingInfo from 'components/ModelingInfo/ModelingInfo';
+import Button from '../Button/Button';
 
 const StyledWrapper = styled.div`
-  width: 95%;
-  margin: auto;
-  padding-top: 44px;
+  width: 100%;
 `;
 
 const ImageWrapper = styled.div`
   width: 100%;
   padding-bottom: 4em;
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.standard} {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
   }
 `;
 
@@ -29,9 +26,9 @@ const StyledImage = styled(Img)`
   margin: 1em 0;
   filter: none;
 
-  ${({ theme }) => theme.mq.desktop}{
+  ${({ theme }) => theme.mq.standard} {
     width: 800px;
-    margin: .4em;
+    margin: 0.4em;
   }
 `;
 
@@ -40,45 +37,55 @@ const ButtonWrapper = styled.div`
   justify-content: center;
 `;
 
-const StyledButton = styled(Button)`
-  margin: 4em 0;
+const MainWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
-  ${({ theme }) => theme.mq.tablet} {
-    width: 400px;
+  ${({ theme }) => theme.mq.standard} {
+    flex-direction: row-reverse;
+    align-items: center;
   }
 `;
 
-const MainModelingContent = ({image}) => (
-  <StyledWrapper>
-    <ButtonWrapper>
-    <StyledButton
-        as="a"
-        href="static/Modeling.pdf"
-        download="Modeling Package">
-        DOWNLOAD MODELING PACKAGE
-    </StyledButton>
-    </ButtonWrapper>
+const ContentWrapper = styled.main`
+  display: flex;
+  justify-content: center;
+`;
 
-    
+const MainModelingContent = ({ image }) => {
+  const { image4, ...images } = image;
+  console.log(image4, images);
+  return (
+    <StyledWrapper>
+      <ButtonWrapper>
+        <Button href={'static/Modeling.pdf'}>Download modeling package</Button>
+      </ButtonWrapper>
 
-    <ImageWrapper>
-      <StyledImage fluid = {image.image4.childImageSharp.fluid} />
-      <ModelingInfo></ModelingInfo>
-      {/* <StyledImage fluid = {image.image13.childImageSharp.fluid} /> */}
-      <StyledImage fluid = {image.image5.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image6.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image7.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image8.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image9.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image10.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image11.childImageSharp.fluid} />
-      <StyledImage fluid = {image.image12.childImageSharp.fluid} />
-    </ImageWrapper>
-  </StyledWrapper>
-);
+      <MainWrapper>
+        <ContentWrapper>Hello my friend</ContentWrapper>
+        <StyledImage fluid={image.image4.childImageSharp.fluid} />
+      </MainWrapper>
+
+      <ImageWrapper>
+        {/*<ModelingInfo></ModelingInfo>*/}
+        {/* <StyledImage fluid = {image.image13.childImageSharp.fluid} /> */}
+        <StyledImage fluid={image.image5.childImageSharp.fluid} />
+        <StyledImage fluid={image.image6.childImageSharp.fluid} />
+        <StyledImage fluid={image.image7.childImageSharp.fluid} />
+        <StyledImage fluid={image.image8.childImageSharp.fluid} />
+        <StyledImage fluid={image.image9.childImageSharp.fluid} />
+        <StyledImage fluid={image.image10.childImageSharp.fluid} />
+        <StyledImage fluid={image.image11.childImageSharp.fluid} />
+        <StyledImage fluid={image.image12.childImageSharp.fluid} />
+      </ImageWrapper>
+    </StyledWrapper>
+  );
+};
 
 MainModelingContent.propTypes = {
-  image: PropTypes.node.isRequired,
+  image: PropTypes.node.isRequired
 };
 
 export default MainModelingContent;

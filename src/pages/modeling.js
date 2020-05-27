@@ -3,11 +3,12 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import MainTemplate from '../templates/MainTemplate';
 import MainModelingContent from '../components/MainModelingContent/MainModelingContent';
+import Layout from '../templates/Layout';
 
 const IndexPage = ({ data }) => (
-  <MainTemplate>
-    <MainModelingContent image={data}>asdasdasd</MainModelingContent>
-  </MainTemplate>
+  <Layout>
+    <MainModelingContent image={data} />
+  </Layout>
 );
 
 export const pageModelingImage = graphql`
@@ -23,19 +24,19 @@ export const pageModelingImage = graphql`
 export const query = graphql`
   query {
     image4: file(name: { regex: "/natalia1/" }) {
-      ...pageModelingImage
+      ...pageImage
     }
     image5: file(name: { regex: "/natalia2/" }) {
-      ...pageModelingImage
+      ...pageImage
     }
     image6: file(name: { regex: "/natalia13/" }) {
-      ...pageModelingImage
+      ...pageImage
     }
     image7: file(name: { regex: "/natalia4/" }) {
-      ...pageModelingImage
+      ...pageImage
     }
     image8: file(name: { regex: "/natalia5/" }) {
-      ...pageModelingImage
+      ...pageImage
     }
     image9: file(name: { regex: "/natalia6/" }) {
       ...pageImage

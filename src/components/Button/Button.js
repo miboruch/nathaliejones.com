@@ -1,38 +1,84 @@
+import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const Button = styled.button`
-  width: 100%;
-  position: relative;
-  display: block;
-  color: ${({ theme }) => theme.black};
-  font-size: ${({ theme }) => theme.font.size.small};
-  font-family: ${({ theme }) => theme.font.family.raleway};
-  text-decoration: none;
-  border: 1px solid #FFB5A6;
-  overflow: hidden;
-  transition: 1s all ease;
-  padding: 0.5em 0;
-  background: ${({ theme }) => theme.white};
+const StyledButton = styled.button`
+  width: 200px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid #e0d4c0;
+  color: #e0d4c0;
   letter-spacing: 1px;
-  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  font-family: 'Gilroy', sans-serif;
 
-  ::before{
-    content: '';
+  &:hover {
+    color: #635d55;
+    transition: color 0.14s ease;
+  }
+  &:focus {
+    outline: none;
+  }
+  &::before {
     position: absolute;
-    width: 60px;
-    height: 30px;
-    top: 0;
+    content: '';
+    bottom: 0;
     left: 0;
-    background: #FFB5A6;
-    transform: translateX(-58px);
-    transition: width .5s ease;
+    width: 0;
+    height: 100%;
+    background-color: #e0d4c0;
+    transition: all 0.25s ease;
+    z-index: -1;
   }
-
-  :hover::before{
-    width: 65px;
-    transition: width .3s ease;
+  &:hover::before {
+    width: 100%;
+    transition: all 0.25s ease;
   }
-
+  :disabled {
+    opacity: 0.5;
+  }
 `;
+
+const Button = ({
+  children,
+  onClick,
+  buttonTheme,
+  type = 'button',
+  disabled,
+  ...props
+}) => {
+  return (
+    <>
+      {disabled ? (
+        <StyledButton
+          onClick={onClick}
+          type={type}
+          buttonTheme={buttonTheme}
+          disabled
+          {...props}
+        >
+          {children}
+        </StyledButton>
+      ) : (
+        <StyledButton onClick={onClick} type={type} buttonTheme={buttonTheme}>
+          {children}
+        </StyledButton>
+      )}
+    </>
+  );
+};
+
+Button.propTypes = {
+  text: PropTypes.string,
+  onClick: PropTypes.func,
+  buttonTheme: PropTypes.oneOf(['light', 'dark']),
+  type: PropTypes.string,
+  disabled: PropTypes.bool
+};
 
 export default Button;
