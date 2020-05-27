@@ -9,39 +9,13 @@ const StyledWrapper = styled.div`
   width: 100%;
 `;
 
-const ImageWrapper = styled.div`
-  width: 100%;
-  padding-bottom: 4em;
-
-  ${({ theme }) => theme.mq.standard} {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-`;
-
-const StyledImage = styled(Img)`
-  position: relative;
-  width: 100%;
-  margin: 1em 0;
-  filter: none;
-
-  ${({ theme }) => theme.mq.standard} {
-    width: 800px;
-    margin: 0.4em;
-  }
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
 const MainWrapper = styled.div`
+  width: 100%;
+  height: calc(100vh - 60px);
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  overflow: hidden;
 
   ${({ theme }) => theme.mq.standard} {
     flex-direction: row-reverse;
@@ -58,6 +32,7 @@ const ContentWrapper = styled.main`
 
   ${({ theme }) => theme.mq.standard} {
     width: 50%;
+    padding: 0 4rem;
   }
 `;
 
@@ -66,12 +41,49 @@ const StyledParagraph = styled.p`
   letter-spacing: 1px;
 `;
 
+const ImageWrapper = styled.div`
+  width: 100%;
+  padding-bottom: 4em;
+
+  ${({ theme }) => theme.mq.standard} {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+`;
+
+const MainImage = styled(Img)`
+  width: 100%;
+
+  ${({ theme }) => theme.mq.standard} {
+    width: 50%;
+    height: 100vh;
+  }
+`;
+
+const StyledImage = styled(Img)`
+  width: 100%;
+  margin: 1em 0;
+
+  ${({ theme }) => theme.mq.standard} {
+    width: 48%;
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+`;
+
 const MainModelingContent = ({ image }) => {
   const { image4, ...images } = image;
   const imagesArray = convertObjectToArray(images);
 
   return (
-    <StyledWrapper>
+    <StyledWrapper className={'transition-wrapper'}>
       <MainWrapper>
         <ContentWrapper>
           <StyledParagraph>
@@ -92,7 +104,7 @@ const MainModelingContent = ({ image }) => {
             </Button>
           </ButtonWrapper>
         </ContentWrapper>
-        <StyledImage fluid={image.image4.childImageSharp.fluid} />
+        <MainImage fluid={image4.childImageSharp.fluid} />
       </MainWrapper>
       <ImageWrapper>
         {imagesArray.map(image => (

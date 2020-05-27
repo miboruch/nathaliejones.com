@@ -5,45 +5,46 @@ import Img from 'gatsby-image';
 
 const StyledWrapper = styled.div`
   width: 100%;
-  margin: auto;
-  padding-top: 44px;
+  padding: 2rem;
+  color: #2d2d2d;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  font-family: ${({ theme }) => theme.font.family.raleway};
+
+  ${({ theme }) => theme.mq.standard} {
+    flex-direction: row;
+  }
 `;
 
 const ImageWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 70%;
-  margin: 54px auto;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 
-  ${({ theme }) => theme.mq.desktop} {
-    flex-direction: row;
+  ${({ theme }) => theme.mq.standard} {
+    width: 50%;
+    height: calc(100vh - 60px);
   }
 `;
 
 const StyledImage = styled(Img)`
   width: 100%;
 
-  ${({ theme }) => theme.mq.desktop} {
-    width: 50%;
+  ${({ theme }) => theme.mq.standard} {
+    width: 600px;
+    height: 80vh;
   }
-`;
-
-const StyledHeading = styled.h1`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: ${({ theme }) => theme.font.weight.regular};
-  margin: 2rem 0;
 `;
 
 const StyledBio = styled.div`
   width: 100%;
   margin: 3em auto;
-  font-weight: ${({ theme }) => theme.font.weight.light};
-  font-size: ${({ theme }) => theme.font.size.small};
-  line-height: 2.2;
+  font-weight: 400;
+  line-height: 1.7;
   letter-spacing: 1px;
   padding-bottom: 1em;
 
@@ -55,19 +56,40 @@ const StyledBio = styled.div`
   ${({ theme }) => theme.mq.tablet} {
     font-size: ${({ theme }) => theme.font.size.medium};
   }
-`;
 
-const StyledParagraph = styled.p`
-  font-size: 1.6rem;
-  font-style: italic;
-  font-weight: ${({ theme }) => theme.font.weight.light};
-  margin: 0;
+  ${({ theme }) => theme.mq.standard} {
+    width: 50%;
+    text-align: left;
+    margin-left: 9rem;
+  }
+
+  ${({ theme }) => theme.mq.desktop} {
+    margin-left: 5rem;
+  }
 `;
 
 const StyledSecondParagraph = styled.p`
-  font-size: 1.7rem;
-  font-weight: ${({ theme }) => theme.font.weight.light};
-  margin: 0;
+  font-size: 17px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin-top: 2rem;
+`;
+
+const StyledHeading = styled.h1`
+  font-size: 21px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin-bottom: 2rem;
+`;
+
+const StyledLinks = styled.section`
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 400;
+
+  ${({ theme }) => theme.mq.standard} {
+    font-size: 17px;
+  }
 `;
 
 const ContactContent = ({ image }) => (
@@ -76,20 +98,19 @@ const ContactContent = ({ image }) => (
       <StyledImage fluid={image.contact1.childImageSharp.fluid} />
     </ImageWrapper>
     <StyledBio>
-      <StyledParagraph>
-        Acting is more than a passion. It's a source of excitement and joy...
-      </StyledParagraph>
-      <StyledHeading>For collaboration contact</StyledHeading>
-      <a href='mailto: nathaliejones.info@yahoo.com'>
-        nathaliejones.info@yahoo.com
-      </a>
-      <br />
-      US: +1 901-337-1953
-      <br />
-      UK: +44 0751-384-6886
-      <br />
-      PL: +48 609-682-811
-      <br />
+      <StyledHeading>Contact</StyledHeading>
+      <StyledLinks>
+        <a href='mailto: nathaliejones.info@yahoo.com'>
+          nathaliejones.info@yahoo.com
+        </a>
+        <br />
+        US: +1 901-337-1953
+        <br />
+        UK: +44 0751-384-6886
+        <br />
+        PL: +48 609-682-811
+        <br />
+      </StyledLinks>
       <StyledSecondParagraph>Los Angeles, California</StyledSecondParagraph>
     </StyledBio>
   </StyledWrapper>

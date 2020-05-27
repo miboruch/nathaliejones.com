@@ -6,8 +6,8 @@ const StyledButton = styled.button`
   width: 200px;
   height: 50px;
   background-color: transparent;
-  border: 1px solid #e0d4c0;
-  color: #e0d4c0;
+  border: 1px solid #666;
+  color: #666;
   letter-spacing: 1px;
   font-size: 12px;
   font-weight: 500;
@@ -17,8 +17,10 @@ const StyledButton = styled.button`
   cursor: pointer;
   font-family: 'Gilroy', sans-serif;
 
+/* e0d4c0 */
+
   &:hover {
-    color: #635d55;
+    color: #fff;
     transition: color 0.14s ease;
   }
   &:focus {
@@ -31,7 +33,7 @@ const StyledButton = styled.button`
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #e0d4c0;
+    background-color: #666;
     transition: all 0.25s ease;
     z-index: -1;
   }

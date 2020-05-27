@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import MainTemplate from '../templates/MainTemplate';
 import MainModelingContent from '../components/MainModelingContent/MainModelingContent';
 import Layout from '../templates/Layout';
 
@@ -10,16 +9,6 @@ const IndexPage = ({ data }) => (
     <MainModelingContent image={data} />
   </Layout>
 );
-
-export const pageModelingImage = graphql`
-  fragment pageModelingImage on File {
-    childImageSharp {
-      fluid(maxWidth: 1000, quality: 100) {
-        ...GatsbyImageSharpFluid_noBase64
-      }
-    }
-  }
-`;
 
 export const query = graphql`
   query {
@@ -48,9 +37,6 @@ export const query = graphql`
       ...pageImage
     }
     image12: file(name: { regex: "/natalia9/" }) {
-      ...pageImage
-    }
-    image13: file(name: { regex: "/description/" }) {
       ...pageImage
     }
   }

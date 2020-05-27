@@ -29,7 +29,6 @@ const StyledHeading = styled.h1`
   margin: 0;
 `;
 
-/* Stylowanie headera dla desktopa */
 const StyledNav = styled.nav`
   display: none;
   align-items: center;
@@ -77,15 +76,13 @@ const StyledLink = styled(Link)`
   }
 `;
 
-/* Koniec stylowania hedeara dla desktopa */
-
 const Header = ({ isOpen, toggleMenu }) => {
   return (
     <StyledHeader>
       <Hamburger onClick={toggleMenu} isOpen={isOpen} />
       <PageTransitionProvider to={'/'}>
         {/*<StyledHeading>Nathalie Jones</StyledHeading>*/}
-        <p>LOGO</p>
+        <p>Nathalie Jones</p>
       </PageTransitionProvider>
 
       <StyledNav>

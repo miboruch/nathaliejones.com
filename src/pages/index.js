@@ -6,7 +6,6 @@ import Img from 'gatsby-image';
 import { StyledHeading } from '../assets/styles/sharedStyles';
 import Layout from '../templates/Layout';
 import { convertObjectToArray } from '../../utils/helpers';
-import PageTransitionProvider from '../providers/PageTransitionProvider';
 
 const PageWrapper = styled.div`
   width: 100%;
@@ -16,10 +15,16 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
+
+  ${({ theme }) => theme.mq.standard} {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const StyledImage = styled(Img)`
   width: 100%;
+  margin-bottom: 2rem;
 
   ${({ theme }) => theme.mq.standard} {
     width: 500px;
@@ -31,6 +36,10 @@ const StyledParagraph = styled.p`
   color: #666;
   text-align: center;
   letter-spacing: 1px;
+
+  ${({ theme }) => theme.mq.standard} {
+    width: 400px;
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -41,12 +50,30 @@ const ImageWrapper = styled.div`
 
   ${({ theme }) => theme.mq.standard} {
     flex-direction: row;
+    justify-content: space-around;
   }
 `;
 
+const ImageBox = styled.section`
+  display: flex;
+  flex-direction: column;
+  color: #666;
+  margin-bottom: 2rem;
+`;
+
+const StyledMonthParagraph = styled.p`
+  font-size: 19px;
+  letter-spacing: 1px;
+  margin: 0;
+`;
+
+const SmallDescription = styled.p`
+  font-size: 12px;
+  margin-top: 0;
+`;
+
 const IndexPage = ({ data }) => {
-  const { image1, image2 } = data;
-  const array = convertObjectToArray(data);
+  const imagesArray = convertObjectToArray(data);
   return (
     <Layout>
       <PageWrapper className={'transition-wrapper'}>
@@ -56,10 +83,14 @@ const IndexPage = ({ data }) => {
           successfully worked both in Commercial and Print.
         </StyledParagraph>
         <StyledHeading>Portfolio</StyledHeading>
-        <PageTransitionProvider to={'/contact'}>Contact</PageTransitionProvider>
         <ImageWrapper>
-          <StyledImage fluid={image1.childImageSharp.fluid} />
-          <StyledImage fluid={image2.childImageSharp.fluid} />
+          {imagesArray.map(image => (
+            <ImageBox>
+              <StyledImage fluid={image.childImageSharp.fluid} />
+              <StyledMonthParagraph>May</StyledMonthParagraph>
+              <SmallDescription>2019</SmallDescription>
+            </ImageBox>
+          ))}
         </ImageWrapper>
       </PageWrapper>
     </Layout>
@@ -84,18 +115,9 @@ export const query = graphql`
     image2: file(name: { regex: "/headshot2/" }) {
       ...pageImage
     }
-    #    image3: file(name: { regex: "/headshot3/" }) {
-    #      ...pageImage
-    #    }
-    #    image4: file(name: { regex: "/natalia1/" }) {
-    #      ...pageModelingImage
-    #    }
-    #    image5: file(name: { regex: "/natalia2/" }) {
-    #      ...pageModelingImage
-    #    }
-    #    image6: file(name: { regex: "/natalia13/" }) {
-    #      ...pageModelingImage
-    #    }
+    image3: file(name: { regex: "/headshot3/" }) {
+      ...pageImage
+    }
   }
 `;
 
