@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 
 import Hamburger from '../Hamburger/Hamburger';
-import { useIsScrollOnTop } from '../../../utils/customHooks';
 import PageTransitionProvider from '../../providers/PageTransitionProvider';
+import { navigation } from '../../../utils/helpers';
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -20,13 +19,6 @@ const StyledHeader = styled.header`
   border-bottom: 1px solid ${({ theme }) => theme.grey};
   background-color: ${({ theme }) => theme.white};
   z-index: 99;
-`;
-
-const StyledHeading = styled.h1`
-  font-weight: 400;
-  font-size: ${({ theme }) => theme.font.size.medium};
-  letter-spacing: 2px;
-  margin: 0;
 `;
 
 const StyledNav = styled.nav`
@@ -67,41 +59,20 @@ const StyledListItem = styled.li`
   font-weight: ${({ theme }) => theme.font.weight.light};
 `;
 
-const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.black};
-  text-decoration: none;
-
-  :first-child {
-    font-weight: ${({ theme }) => theme.font.weight.bold};
-  }
-`;
-
 const Header = ({ isOpen, toggleMenu }) => {
   return (
     <StyledHeader>
       <Hamburger onClick={toggleMenu} isOpen={isOpen} />
       <PageTransitionProvider to={'/'}>
-        {/*<StyledHeading>Nathalie Jones</StyledHeading>*/}
         <p>Nathalie Jones</p>
       </PageTransitionProvider>
-
       <StyledNav>
         <StyledList>
-          <StyledLink to='/'>
-            <StyledListItem>Home</StyledListItem>
-          </StyledLink>
-          <StyledLink to='/acting'>
-            <StyledListItem>Acting</StyledListItem>
-          </StyledLink>
-          <StyledLink to='/modeling'>
-            <StyledListItem>Modeling</StyledListItem>
-          </StyledLink>
-          <StyledLink to='/demoreels'>
-            <StyledListItem>Demo reels</StyledListItem>
-          </StyledLink>
-          <StyledLink to='/contact'>
-            <StyledListItem>Contact</StyledListItem>
-          </StyledLink>
+          {navigation.map(item => (
+            <PageTransitionProvider to={item.link}>
+              <StyledListItem>{item.name}</StyledListItem>
+            </PageTransitionProvider>
+          ))}
         </StyledList>
       </StyledNav>
     </StyledHeader>
