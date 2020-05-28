@@ -60,7 +60,7 @@ export const navigation = [
   },
   {
     link: '/contact',
-    name: 'contact'
+    name: 'Contact'
   }
 ];
 

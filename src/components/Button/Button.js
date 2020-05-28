@@ -44,7 +44,7 @@ const StyledButton = styled.button`
     opacity: 0.5;
   }
 
-  ${({ theme }) => theme.mq.standard} {
+  ${({ theme }) => theme.mq.tablet} {
     margin-bottom: 0;
     margin-right: 2rem;
   }

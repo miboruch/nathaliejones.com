@@ -15,3 +15,28 @@ export const useIsScrollOnTop = () => {
 
   return isOnTop;
 };
+
+export function useScrollDirection() {
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [bodyOffset, setBodyOffset] = useState(
+    document.body.getBoundingClientRect()
+  );
+  const [scrollDirection, setScrollDirection] = useState(null);
+
+  const listener = e => {
+    setBodyOffset(document.body.getBoundingClientRect());
+    setScrollDirection(lastScrollTop > -bodyOffset.top ? 'up' : 'down');
+    setLastScrollTop(-bodyOffset.top);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', listener);
+    return () => {
+      window.removeEventListener('scroll', listener);
+    };
+  });
+
+  return {
+    scrollDirection
+  };
+}

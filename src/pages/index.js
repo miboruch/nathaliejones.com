@@ -27,6 +27,10 @@ const StyledImage = styled(Img)`
   margin-bottom: 2rem;
 
   ${({ theme }) => theme.mq.standard} {
+    width: 800px;
+  }
+
+  ${({ theme }) => theme.mq.desktop} {
     width: 500px;
   }
 `;
@@ -46,9 +50,14 @@ const ImageWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
+  justify-content: center;
+  
   ${({ theme }) => theme.mq.standard} {
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  ${({ theme }) => theme.mq.desktop} {
     flex-direction: row;
     justify-content: space-around;
   }
@@ -100,7 +109,7 @@ const IndexPage = ({ data }) => {
 export const pageImage = graphql`
   fragment pageImage on File {
     childImageSharp {
-      fluid(maxWidth: 1000, quality: 100) {
+      fluid(maxWidth: 800, quality: 100) {
         ...GatsbyImageSharpFluid_noBase64
       }
     }

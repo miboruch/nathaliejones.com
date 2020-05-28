@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Hamburger from '../Hamburger/Hamburger';
 import PageTransitionProvider from '../../providers/PageTransitionProvider';
 import { navigation } from '../../../utils/helpers';
+import { useScrollDirection } from '../../../utils/customHooks';
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -60,6 +61,8 @@ const StyledListItem = styled.li`
 `;
 
 const Header = ({ isOpen, toggleMenu }) => {
+  const { scrollDirection } = useScrollDirection();
+  console.log(scrollDirection);
   return (
     <StyledHeader>
       <Hamburger onClick={toggleMenu} isOpen={isOpen} />

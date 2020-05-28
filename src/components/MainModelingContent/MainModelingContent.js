@@ -29,7 +29,7 @@ const ContentWrapper = styled.main`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 0 2rem;
+  padding: 4rem 2rem;
 
   ${({ theme }) => theme.mq.standard} {
     width: 50%;

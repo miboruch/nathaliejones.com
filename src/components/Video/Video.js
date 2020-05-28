@@ -12,10 +12,12 @@ const StyledVideo = styled.iframe`
     justify-content: center;
   }
 
+  ${({ theme }) => theme.mq.tablet} {
+    height: 600px;
+  }
+
   ${({ theme }) => theme.mq.desktop} {
-    width: 100%;
     height: 800px;
-    justify-content: center;
   }
 `;
 
