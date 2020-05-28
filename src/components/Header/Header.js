@@ -60,6 +60,10 @@ const StyledListItem = styled.li`
   font-weight: ${({ theme }) => theme.font.weight.light};
 `;
 
+const StyledLogo = styled.p`
+  font-size: 21px;
+`;
+
 const Header = ({ isOpen, toggleMenu }) => {
   const [tl] = useState(gsap.timeline({ defaults: { ease: 'power3.inOut' } }));
   const headerRef = useRef(null);
@@ -85,7 +89,7 @@ const Header = ({ isOpen, toggleMenu }) => {
     <StyledHeader ref={headerRef}>
       <Hamburger onClick={toggleMenu} isOpen={isOpen} />
       <PageTransitionProvider to={'/'}>
-        <p>Nathalie Jones</p>
+        <StyledLogo>Nathalie Jones</StyledLogo>
       </PageTransitionProvider>
       <StyledNav>
         <StyledList>

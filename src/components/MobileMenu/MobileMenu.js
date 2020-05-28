@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import gsap from 'gsap';
-import { Link } from 'gatsby';
 import { pageNavigation } from '../../../utils/pageNaviagation';
+import PageTransitionProvider from '../../providers/PageTransitionProvider';
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -31,18 +31,14 @@ const MenuLinkWrapper = styled.ul`
   flex-direction: column;
 `;
 
-const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.black};
-  text-decoration: none;
+const StyledMenuItem = styled.p`
+  color: #2d2d2d;
   letter-spacing: 2px;
   font-size: ${({ theme }) => theme.font.size.medium};
-  padding: 1em 0;
   text-transform: uppercase;
-  list-style-type: none;
-  visibility: hidden;
 `;
 
-const MobileMenu = ({ isOpen }) => {
+const MobileMenu = ({ isOpen, setOpen }) => {
   const wrapperRef = useRef(null);
   const menuItemsRef = useRef(null);
   const [tl] = useState(gsap.timeline({ defaults: { ease: 'power3.inOut' } }));
@@ -73,9 +69,11 @@ const MobileMenu = ({ isOpen }) => {
     <StyledWrapper ref={wrapperRef}>
       <MenuLinkWrapper ref={menuItemsRef}>
         {pageNavigation.map(item => (
-          <StyledLink to={item.path} key={item.name} isOpen={isOpen}>
-            {item.name}
-          </StyledLink>
+          <PageTransitionProvider to={item.path} key={item.name}>
+            <StyledMenuItem onClick={() => setOpen(false)}>
+              {item.name}
+            </StyledMenuItem>
+          </PageTransitionProvider>
         ))}
       </MenuLinkWrapper>
     </StyledWrapper>
@@ -83,7 +81,8 @@ const MobileMenu = ({ isOpen }) => {
 };
 
 MobileMenu.propTypes = {
-  isOpen: PropTypes.bool
+  isOpen: PropTypes.bool,
+  setOpen: PropTypes.func
 };
 
 MobileMenu.defaultProps = {

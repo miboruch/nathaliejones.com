@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <>
-          <MobileMenu isOpen={isMenuOpen} />
+          <MobileMenu isOpen={isMenuOpen} setOpen={setMenuOpen} />
           <Header isOpen={isMenuOpen} toggleMenu={toggleMenu} />
           <StyledWrapper>{children}</StyledWrapper>
           <Footer />

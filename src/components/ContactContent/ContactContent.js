@@ -36,7 +36,7 @@ const StyledImage = styled(Img)`
 
   ${({ theme }) => theme.mq.standard} {
     width: 600px;
-    height: 80vh;
+    height: 100vh;
   }
 `;
 
