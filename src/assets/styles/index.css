@@ -21,3 +21,8 @@
   src: url('../../../static/fonts/Gilroy-Bold.woff') format('woff');
   font-weight: 700;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

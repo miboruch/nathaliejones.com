@@ -7,11 +7,11 @@ import { theme } from '../assets/styles/theme';
 
 import '../assets/styles/index.css';
 import MobileMenu from '../components/MobileMenu/MobileMenu';
+import Footer from '../components/Footer/Footer';
 
 const StyledWrapper = styled.div`
   margin-top: 60px;
   width: 100%;
-  height: 100vh;
 `;
 
 const Layout = ({ children }) => {
@@ -29,6 +29,7 @@ const Layout = ({ children }) => {
           <MobileMenu isOpen={isMenuOpen} />
           <Header isOpen={isMenuOpen} toggleMenu={toggleMenu} />
           <StyledWrapper>{children}</StyledWrapper>
+          <Footer />
         </>
       </ThemeProvider>
     </>
