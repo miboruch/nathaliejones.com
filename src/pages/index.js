@@ -70,17 +70,6 @@ const ImageBox = styled.section`
   margin-bottom: 2rem;
 `;
 
-const StyledMonthParagraph = styled.p`
-  font-size: 19px;
-  letter-spacing: 1px;
-  margin: 0;
-`;
-
-const SmallDescription = styled.p`
-  font-size: 12px;
-  margin-top: 0;
-`;
-
 const IndexPage = ({ data }) => {
   const imagesArray = convertObjectToArray(data);
   return (
@@ -96,8 +85,6 @@ const IndexPage = ({ data }) => {
           {imagesArray.map((image, index) => (
             <ImageBox key={index}>
               <StyledImage fluid={image.childImageSharp.fluid} />
-              <StyledMonthParagraph>May</StyledMonthParagraph>
-              <SmallDescription>2019</SmallDescription>
             </ImageBox>
           ))}
         </ImageWrapper>

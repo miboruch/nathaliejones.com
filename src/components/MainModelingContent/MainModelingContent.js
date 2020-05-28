@@ -123,7 +123,7 @@ const MainModelingContent = ({ mainImage, images }) => {
         </ContentWrapper>
         <MainImage fluid={mainImage.childImageSharp.fluid} />
       </MainWrapper>
-      <StyledHeading>Resume</StyledHeading>
+      <StyledHeading>Portfolio</StyledHeading>
       <ImageWrapper>
         {images.map((image, index) => (
           <StyledImage fluid={image.node.childImageSharp.fluid} key={index} />

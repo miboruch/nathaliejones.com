@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import Video from '../Video/Video';
+import { demoArray } from '../../../utils/helpers';
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -69,24 +70,14 @@ const MainDemoContent = () => (
     </ButtonWrapper>
 
     <VideoWrapper>
-      <Video
-        videoSrcURL={'https://www.youtube.com/embed/K9ShlHKGRZc'}
-        videoTitle={'Nathalie Jones'}
-        width={'700'}
-        height={'400'}
-      />
-      <Video
-        videoSrcURL={'https://www.youtube.com/embed/K9ShlHKGRZc'}
-        videoTitle={'Nathalie Jones'}
-        width={'700'}
-        height={'400'}
-      />
-      <Video
-        videoSrcURL={'https://www.youtube.com/embed/K9ShlHKGRZc'}
-        videoTitle={'Nathalie Jones'}
-        width={'700'}
-        height={'400'}
-      />
+      {demoArray.map(demoUrl => (
+        <Video
+          videoSrcURL={demoUrl}
+          videoTitle={'Nathalie Jones'}
+          width={'700'}
+          height={'400'}
+        />
+      ))}
     </VideoWrapper>
   </StyledWrapper>
 );

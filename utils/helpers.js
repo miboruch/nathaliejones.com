@@ -83,3 +83,10 @@ export const social = [
     component: <Imdb />
   }
 ];
+
+export const demoArray = [
+  'https://www.youtube.com/embed/K9ShlHKGRZc',
+  'https://www.youtube.com/embed/g6AN8mNDs8I',
+  'https://www.youtube.com/embed/7PxVaam09Kk',
+  'https://www.youtube.com/embed/e45_Cn1p2aE'
+];
