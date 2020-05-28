@@ -9,24 +9,15 @@ const StyledWrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-  width: 95%;
-  margin: auto;
+  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
-  padding-top: 120px;
+  padding-top: 4rem;
 
   ${({ theme }) => theme.mq.tablet} {
     flex-direction: row;
-  }
-`;
-
-const StyledButton = styled(Button)`
-  margin: 1em 0;
-
-  ${({ theme }) => theme.mq.tablet} {
-    width: 400px;
-    margin: 0 1em;
   }
 `;
 
@@ -36,7 +27,7 @@ const VideoWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 80px 0;
+  padding: 4rem 0;
 
   ${({ theme }) => theme.mq.tablet} {
     justify-content: center;
@@ -67,7 +58,7 @@ const StyledVideo = styled.iframe`
 `;
 
 const MainDemoContent = () => (
-  <StyledWrapper>
+  <StyledWrapper className={'transition-wrapper'}>
     <ButtonWrapper>
       <Button href='static/Acting.pdf' download='Acting Package'>
         DOWNLOAD ACTING PACKAGE
@@ -78,31 +69,23 @@ const MainDemoContent = () => (
     </ButtonWrapper>
 
     <VideoWrapper>
-      <StyledVideo
-        width='700'
-        height='400'
-        src='https://www.youtube.com/embed/K9ShlHKGRZc'
-        frameborder='0'
-        allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-        allowfullscreen
+      <Video
+        videoSrcURL={'https://www.youtube.com/embed/K9ShlHKGRZc'}
+        videoTitle={'Nathalie Jones'}
+        width={'700'}
+        height={'400'}
       />
-
-      <StyledVideo
-        width='700'
-        height='400'
-        src='https://www.youtube.com/embed/CHQc-AnxmRg'
-        frameborder='0'
-        allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-        allowfullscreen
+      <Video
+        videoSrcURL={'https://www.youtube.com/embed/K9ShlHKGRZc'}
+        videoTitle={'Nathalie Jones'}
+        width={'700'}
+        height={'400'}
       />
-
-      <StyledVideo
-        width='700'
-        height='400'
-        src='https://www.youtube.com/embed/tQwQ__0bdkc'
-        frameborder='0'
-        allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-        allowfullscreen
+      <Video
+        videoSrcURL={'https://www.youtube.com/embed/K9ShlHKGRZc'}
+        videoTitle={'Nathalie Jones'}
+        width={'700'}
+        height={'400'}
       />
     </VideoWrapper>
   </StyledWrapper>

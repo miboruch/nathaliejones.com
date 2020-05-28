@@ -11,13 +11,14 @@ const StyledWrapper = styled.div`
 
 const MainWrapper = styled.div`
   width: 100%;
-  height: calc(100vh - 60px);
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   overflow: hidden;
+  border-bottom: 1px solid #ccc;
 
   ${({ theme }) => theme.mq.standard} {
+    height: calc(100vh - 60px);
     flex-direction: row-reverse;
     align-items: center;
   }
@@ -48,7 +49,7 @@ const ImageWrapper = styled.div`
   ${({ theme }) => theme.mq.standard} {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
   }
@@ -58,8 +59,9 @@ const MainImage = styled(Img)`
   width: 100%;
 
   ${({ theme }) => theme.mq.standard} {
-    width: 50%;
+    width: 49%;
     height: 100vh;
+    align-self: flex-start;
   }
 `;
 
@@ -68,7 +70,7 @@ const StyledImage = styled(Img)`
   margin: 1em 0;
 
   ${({ theme }) => theme.mq.standard} {
-    width: 48%;
+    width: 49%;
   }
 `;
 

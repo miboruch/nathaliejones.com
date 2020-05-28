@@ -50,7 +50,7 @@ const ButtonWrapper = styled.div`
 const MainActingContent = ({ image }) => {
   const imagesArray = convertObjectToArray(image);
   return (
-    <StyledWrapper>
+    <StyledWrapper className={'transition-wrapper'}>
       <ButtonWrapper>
         <Button href={'static/Acting.pdf'} download='Acting Package'>
           DOWNLOAD ACTING PACKAGE
