@@ -51,7 +51,7 @@ const ImageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+
   ${({ theme }) => theme.mq.standard} {
     align-items: center;
     justify-content: space-around;
@@ -93,8 +93,8 @@ const IndexPage = ({ data }) => {
         </StyledParagraph>
         <StyledHeading>Portfolio</StyledHeading>
         <ImageWrapper>
-          {imagesArray.map(image => (
-            <ImageBox>
+          {imagesArray.map((image, index) => (
+            <ImageBox key={index}>
               <StyledImage fluid={image.childImageSharp.fluid} />
               <StyledMonthParagraph>May</StyledMonthParagraph>
               <SmallDescription>2019</SmallDescription>

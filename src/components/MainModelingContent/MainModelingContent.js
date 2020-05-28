@@ -80,6 +80,20 @@ const ButtonWrapper = styled.div`
   margin: 2rem 0;
 `;
 
+const StyledHeading = styled.h1`
+  font-size: 24px;
+  margin: 4rem 0;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-align: center;
+  color: #2d2d2d;
+
+  ${({ theme }) => theme.mq.standard} {
+    margin: 5rem 0;
+    font-size: 34px;
+  }
+`;
+
 const MainModelingContent = ({ image }) => {
   const { image4, ...images } = image;
   const imagesArray = convertObjectToArray(images);
@@ -108,9 +122,10 @@ const MainModelingContent = ({ image }) => {
         </ContentWrapper>
         <MainImage fluid={image4.childImageSharp.fluid} />
       </MainWrapper>
+      <StyledHeading>Resume</StyledHeading>
       <ImageWrapper>
-        {imagesArray.map(image => (
-          <StyledImage fluid={image.childImageSharp.fluid} />
+        {imagesArray.map((image, index) => (
+          <StyledImage fluid={image.childImageSharp.fluid} key={index} />
         ))}
       </ImageWrapper>
     </StyledWrapper>
