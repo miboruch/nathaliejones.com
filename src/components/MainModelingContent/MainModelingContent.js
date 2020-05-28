@@ -94,8 +94,9 @@ const StyledHeading = styled.h1`
   }
 `;
 
-const MainModelingContent = ({ image }) => {
-  const { image4, ...images } = image;
+const MainModelingContent = ({ mainImage, images }) => {
+  console.log(images);
+  // const { image4, ...images } = image;
   const imagesArray = convertObjectToArray(images);
 
   return (
@@ -120,12 +121,12 @@ const MainModelingContent = ({ image }) => {
             </Button>
           </ButtonWrapper>
         </ContentWrapper>
-        <MainImage fluid={image4.childImageSharp.fluid} />
+        <MainImage fluid={mainImage.childImageSharp.fluid} />
       </MainWrapper>
       <StyledHeading>Resume</StyledHeading>
       <ImageWrapper>
-        {imagesArray.map((image, index) => (
-          <StyledImage fluid={image.childImageSharp.fluid} key={index} />
+        {images.map((image, index) => (
+          <StyledImage fluid={image.node.childImageSharp.fluid} key={index} />
         ))}
       </ImageWrapper>
     </StyledWrapper>
@@ -133,7 +134,8 @@ const MainModelingContent = ({ image }) => {
 };
 
 MainModelingContent.propTypes = {
-  image: PropTypes.node.isRequired
+  images: PropTypes.node.isRequired,
+  mainImage: PropTypes.node.isRequired
 };
 
 export default MainModelingContent;
