@@ -45,7 +45,11 @@ const StyledButton = styled.button`
   }
 
   ${({ theme }) => theme.mq.tablet} {
-    margin-bottom: 0;
+    margin-bottom: 2rem;
+  }
+
+  ${({ theme }) => theme.mq.tablet} {
+    margin-bottom: 2rem;
     margin-right: 2rem;
   }
 `;

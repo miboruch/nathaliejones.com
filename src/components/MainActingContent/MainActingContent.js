@@ -42,7 +42,7 @@ const ButtonWrapper = styled.div`
   flex-direction: column;
   margin: 2rem 0;
 
-  ${({ theme }) => theme.mq.desktop} {
+  ${({ theme }) => theme.mq.standard} {
     flex-direction: row;
   }
 `;
@@ -62,7 +62,7 @@ const MainActingContent = ({ image }) => {
 
       <ImageWrapper>
         {imagesArray.map(image => (
-          <StyledImage fluid={image.childImageSharp.fluid} />
+          <StyledImage fluid={image.node.childImageSharp.fluid} />
         ))}
       </ImageWrapper>
     </StyledWrapper>
