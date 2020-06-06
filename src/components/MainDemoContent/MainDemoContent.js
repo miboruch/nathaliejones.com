@@ -40,24 +40,6 @@ const VideoWrapper = styled.div`
   }
 `;
 
-const StyledVideo = styled.iframe`
-  width: 100%;
-  height: 300px;
-  margin-bottom: 2rem;
-
-  ${({ theme }) => theme.mq.tablet} {
-    width: 100%;
-    height: 400px;
-    justify-content: center;
-  }
-
-  ${({ theme }) => theme.mq.desktop} {
-    width: 100%;
-    height: 800px;
-    justify-content: center;
-  }
-`;
-
 const MainDemoContent = () => (
   <StyledWrapper className={'transition-wrapper'}>
     <ButtonWrapper>

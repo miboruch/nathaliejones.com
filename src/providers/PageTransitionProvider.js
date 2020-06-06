@@ -41,22 +41,20 @@ const PageTransitionProvider = ({ children, to }) => {
   };
 
   return (
-    <>
-      <TransitionLink
-        style={{ textDecoration: 'none', color: 'inherit' }}
-        to={to}
-        exit={{
-          trigger: ({ exit, node }) => exitAnimation(exit, node),
-          length: 2
-        }}
-        entry={{
-          delay: 0.5,
-          trigger: ({ entry, node }) => enterAnimation(entry, node)
-        }}
-      >
-        {children}
-      </TransitionLink>
-    </>
+    <TransitionLink
+      style={{ textDecoration: 'none', color: 'inherit' }}
+      to={to}
+      exit={{
+        trigger: ({ exit, node }) => exitAnimation(exit, node),
+        length: 2
+      }}
+      entry={{
+        delay: 0.5,
+        trigger: ({ entry, node }) => enterAnimation(entry, node)
+      }}
+    >
+      {children}
+    </TransitionLink>
   );
 };
 

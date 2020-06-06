@@ -61,8 +61,8 @@ const MainActingContent = ({ image }) => {
       </ButtonWrapper>
 
       <ImageWrapper>
-        {imagesArray.map(image => (
-          <StyledImage fluid={image.node.childImageSharp.fluid} />
+        {imagesArray.map((image, index) => (
+          <StyledImage fluid={image.node.childImageSharp.fluid} key={index} />
         ))}
       </ImageWrapper>
     </StyledWrapper>
