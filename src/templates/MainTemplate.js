@@ -15,18 +15,16 @@ const MainTemplate = ({ children }) => (
       <>
         <Header />
         {children}
-        <Footer />
       </>
     </ThemeProvider>
   </>
 );
 
-
 MainTemplate.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
+    PropTypes.node
+  ]).isRequired
 };
 
 export default MainTemplate;

@@ -1,59 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import MainTemplate from 'templates/MainTemplate';
-import MainActingContent from 'components/MainActingContent/MainActingContent';
+import MainActingContent from '../components/MainActingContent/MainActingContent';
+import Layout from '../templates/Layout';
 
-const IndexPage = ({ data }) => (
-  <MainTemplate>
-    <MainActingContent image = {data}/>
-  </MainTemplate>
+const ActingPage = ({ data }) => (
+  <Layout>
+    <MainActingContent image={data.allFile.edges} />
+  </Layout>
 );
 
-export const pageActingImage = graphql`
-  fragment pageActingImage on File {
-    childImageSharp {
-      fluid(maxWidth: 1000, quality: 100) {
-        ...GatsbyImageSharpFluid_noBase64
+export const query = graphql`
+  query {
+    allFile(filter: { relativeDirectory: { regex: "/acting/" } }) {
+      edges {
+        node {
+          ...pageImage
+        }
       }
     }
   }
 `;
 
-export const query = graphql`
-  query {
-    image13: file(name: { regex: "/acting7/" }) {
-      ...pageActingImage
-    }
-    image14: file(name: { regex: "/acting8/" }) {
-      ...pageActingImage
-    }
-    image15: file(name: { regex: "/acting9/" }) {
-      ...pageActingImage
-    }
-    image16: file(name: { regex: "/acting1/" }) {
-      ...pageActingImage
-    }
-    image17: file(name: { regex: "/acting2/" }) {
-      ...pageActingImage
-    }
-    image18: file(name: { regex: "/acting3/" }) {
-      ...pageActingImage
-    }
-    image19: file(name: { regex: "/acting4/" }) {
-      ...pageActingImage
-    }
-    image20: file(name: { regex: "/acting5/" }) {
-      ...pageActingImage
-    }
-    image21: file(name: { regex: "/acting6/" }) {
-      ...pageActingImage
-    }
-  }
-`;
-
-IndexPage.propTypes = {
-  data: PropTypes.node.isRequired,
+ActingPage.propTypes = {
+  data: PropTypes.node.isRequired
 };
 
-export default IndexPage;
+export default ActingPage;

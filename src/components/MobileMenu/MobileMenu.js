@@ -1,81 +1,92 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import gsap from 'gsap';
+import { pageNavigation } from '../../../utils/pageNaviagation';
+import PageTransitionProvider from '../../providers/PageTransitionProvider';
 
 const StyledWrapper = styled.div`
-  display: flex;
+  width: 100%;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(255,255,255,.9);
-  z-index: 998;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100%')});
-  transition: transform 0.4s ease-in-out;
-  `;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 98;
+  transform: translateX(-100%);
+
+  ${({ theme }) => theme.mq.standard} {
+    display: none;
+  }
+`;
 
 const MenuLinkWrapper = styled.ul`
+  width: 100%;
+  height: 100%;
   text-align: center;
   padding: 0;
-
-  li::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 1px;
-    background: ${({ theme }) => theme.black};
-    transition: width 0.3s;
-  }
-
-  li:hover::after {
-    width: 100%;
-    transition: width 0.3s;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
-const StyledListItem = styled.li`
-  font-family: ${({ theme }) => theme.font.family.raleway};
-  font-weight: ${({ theme }) => theme.font.weight.bold};
+const StyledMenuItem = styled.p`
+  color: #2d2d2d;
+  letter-spacing: 2px;
   font-size: ${({ theme }) => theme.font.size.medium};
-  padding: 1em 0;
   text-transform: uppercase;
-  list-style-type: none;
-  opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
-  transition: opacity 1s 0.3s ease-in-out;
-
-  ${({ theme }) => theme.mq.desktop}{
-    transition: opacity 1s 0.5s ease-in-out;
-  }
 `;
 
-const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.black};
-  text-decoration: none;
-`;
+const MobileMenu = ({ isOpen, setOpen }) => {
+  const wrapperRef = useRef(null);
+  const menuItemsRef = useRef(null);
+  const [tl] = useState(gsap.timeline({ defaults: { ease: 'power3.inOut' } }));
 
-const MobileMenu = ({ isOpen }) => (
-  <StyledWrapper isOpen={isOpen}>
-    <MenuLinkWrapper>
-      <StyledLink to ='/'><StyledListItem isOpen={isOpen}>HOME</StyledListItem></StyledLink>
-      <StyledLink to ='/acting'><StyledListItem isOpen={isOpen}>acting</StyledListItem></StyledLink>
-      <StyledLink to ='/modeling'><StyledListItem isOpen={isOpen}>modeling</StyledListItem></StyledLink>
-      <StyledLink to ='/demoreels'><StyledListItem isOpen={isOpen}>demo reels</StyledListItem></StyledLink>
-      <StyledLink to ='/contact'><StyledListItem isOpen={isOpen}>contact</StyledListItem></StyledLink>
-    </MenuLinkWrapper>
-  </StyledWrapper>
-);
+  useEffect(() => {
+    const wrapperBox = wrapperRef.current;
+    const menuItems = menuItemsRef.current;
+
+    gsap.set(menuItems.children, { autoAlpha: 0 });
+
+    tl.fromTo(
+      wrapperBox,
+      { transform: 'translateX(-100%)' },
+      { transform: 'translateX(0)', duration: 0.7 }
+    ).fromTo(
+      menuItems.children,
+      { x: '-=10', y: '-=15' },
+      { autoAlpha: 1, x: '0', y: '0', stagger: 0.1, duration: 0.6 },
+      '-=0.4'
+    );
+  }, []);
+
+  useEffect(() => {
+    isOpen ? tl.play() : tl.reverse();
+  }, [isOpen]);
+
+  return (
+    <StyledWrapper ref={wrapperRef}>
+      <MenuLinkWrapper ref={menuItemsRef}>
+        {pageNavigation.map(item => (
+          <PageTransitionProvider to={item.path} key={item.name}>
+            <StyledMenuItem onClick={() => setOpen(false)}>
+              {item.name}
+            </StyledMenuItem>
+          </PageTransitionProvider>
+        ))}
+      </MenuLinkWrapper>
+    </StyledWrapper>
+  );
+};
 
 MobileMenu.propTypes = {
   isOpen: PropTypes.bool,
+  setOpen: PropTypes.func
 };
 
 MobileMenu.defaultProps = {
-  isOpen: false,
+  isOpen: false
 };
 
 export default MobileMenu;

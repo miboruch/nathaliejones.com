@@ -13,20 +13,22 @@ export const theme = {
       small: '1.4rem',
       medium: '2.3rem',
       large: '3.5rem',
-      xlarge: '6.2rem',
+      xlarge: '6.2rem'
     },
     family: {
-      raleway: 'Raleway, sans-serif',
-      advent: 'Advent Pro, sans-serif',
+      gilroy: 'Gilroy'
     },
     weight: {
       light: '200',
       regular: '400',
-      bold: '700',
-    },
+      bold: '700'
+    }
   },
   mq: {
-    tablet: '@media all and (min-width: 612px)',
-    desktop: '@media all and (min-width: 1080px)',
-  },
+    mobileL: '@media all and (min-width: 370px)',
+    tabletS: '@media all and (min-width: 512px)',
+    tablet: '@media all and (min-width: 710px)',
+    standard: '@media all and (min-width: 1024px)',
+    desktop: '@media all and (min-width: 1440px)'
+  }
 };

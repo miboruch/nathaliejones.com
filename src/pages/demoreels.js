@@ -1,12 +1,11 @@
 import React from 'react';
-import MainTemplate from 'templates/MainTemplate';
-import MainDemoContent from 'components/MainDemoContent/MainDemoContent';
-
+import MainDemoContent from '../components/MainDemoContent/MainDemoContent';
+import Layout from '../templates/Layout';
 
 const IndexPage = () => (
-  <MainTemplate>
+  <Layout>
     <MainDemoContent />
-  </MainTemplate>
+  </Layout>
 );
 
 export default IndexPage;

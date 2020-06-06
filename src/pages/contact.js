@@ -1,35 +1,25 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import MainTemplate from 'templates/MainTemplate';
-import ContactContent from 'components/ContactContent/ContactContent';
+import ContactContent from '../components/ContactContent/ContactContent';
+import Layout from '../templates/Layout';
 
 const IndexPage = ({ data }) => (
-  <MainTemplate>
+  <Layout>
     <ContactContent image={data} />
-  </MainTemplate>
+  </Layout>
 );
-
-export const pageContactImage = graphql`
-  fragment pageContactImage on File {
-    childImageSharp {
-      fluid(maxWidth: 1000, quality: 100) {
-        ...GatsbyImageSharpFluid_noBase64
-      }
-    }
-  }
-`;
 
 export const query = graphql`
   query {
     contact1: file(name: { regex: "/headshot1/" }) {
-      ...pageContactImage
+      ...pageImage
     }
   }
 `;
 
 IndexPage.propTypes = {
-  data: PropTypes.node.isRequired,
+  data: PropTypes.node.isRequired
 };
 
 export default IndexPage;
