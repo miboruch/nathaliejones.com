@@ -5,39 +5,43 @@ import gsap from 'gsap';
 
 const PageTransitionProvider = ({ children, to }) => {
   const exitAnimation = () => {
-    const body = document.body;
-    const wrapper = body.querySelector('.transition-wrapper');
+    if (document !== undefined && document !== null) {
+      const body = document.body;
+      const wrapper = body.querySelector('.transition-wrapper');
 
-    const tl = gsap.timeline({ defaults: { ease: 'Power3.easeOut' } });
+      const tl = gsap.timeline({ defaults: { ease: 'Power3.easeOut' } });
 
-    tl.fromTo(
-      wrapper.children,
-      { y: '0' },
-      {
-        y: '+=30',
-        autoAlpha: 0,
-        duration: 0.8,
-        stagger: 0.1
-      }
-    );
+      tl.fromTo(
+        wrapper.children,
+        { y: '0' },
+        {
+          y: '+=30',
+          autoAlpha: 0,
+          duration: 0.8,
+          stagger: 0.1
+        }
+      );
+    }
   };
 
   const enterAnimation = () => {
-    const body = document.body;
-    const wrapper = body.querySelector('.transition-wrapper');
+    if (document !== undefined && document !== null) {
+      const body = document.body;
+      const wrapper = body.querySelector('.transition-wrapper');
 
-    const tl = gsap.timeline({ defaults: { ease: 'Power3.easeIn' } });
+      const tl = gsap.timeline({ defaults: { ease: 'Power3.easeIn' } });
 
-    tl.fromTo(
-      wrapper.children,
-      { y: '+=30', autoAlpha: 0 },
-      {
-        y: '0',
-        autoAlpha: 1,
-        duration: 0.6,
-        stagger: 0.1
-      }
-    );
+      tl.fromTo(
+        wrapper.children,
+        { y: '+=30', autoAlpha: 0 },
+        {
+          y: '0',
+          autoAlpha: 1,
+          duration: 0.6,
+          stagger: 0.1
+        }
+      );
+    }
   };
 
   return (
