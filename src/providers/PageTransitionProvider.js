@@ -5,7 +5,7 @@ import gsap from 'gsap';
 
 const PageTransitionProvider = ({ children, to }) => {
   const exitAnimation = () => {
-    if (document !== undefined && document !== null) {
+    if (typeof document !== `undefined` && typeof window !== `undefined`) {
       const body = document.body;
       const wrapper = body.querySelector('.transition-wrapper');
 
@@ -25,7 +25,7 @@ const PageTransitionProvider = ({ children, to }) => {
   };
 
   const enterAnimation = () => {
-    if (document !== undefined && document !== null) {
+    if (typeof document !== `undefined` && typeof window !== `undefined`) {
       const body = document.body;
       const wrapper = body.querySelector('.transition-wrapper');
 
