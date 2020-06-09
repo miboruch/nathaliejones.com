@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { navigation, social } from '../../../utils/helpers';
-import PageTransitionProvider from '../../providers/PageTransitionProvider';
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -76,9 +75,9 @@ const Footer = () => (
     <StyledNav>
       <StyledList>
         {navigation.map(item => (
-          <PageTransitionProvider to={item.link}>
+          <Link to={item.link}>
             <StyledListItem>{item.name}</StyledListItem>
-          </PageTransitionProvider>
+          </Link>
         ))}
       </StyledList>
     </StyledNav>

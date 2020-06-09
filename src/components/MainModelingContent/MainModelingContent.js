@@ -95,10 +95,6 @@ const StyledHeading = styled.h1`
 `;
 
 const MainModelingContent = ({ mainImage, images }) => {
-  console.log(images);
-  // const { image4, ...images } = image;
-  const imagesArray = convertObjectToArray(images);
-
   return (
     <StyledWrapper className={'transition-wrapper'}>
       <MainWrapper>
