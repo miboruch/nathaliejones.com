@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import gsap from 'gsap';
-import {Link} from 'gatsby';
 import Hamburger from '../Hamburger/Hamburger';
 import { navigation } from '../../../utils/helpers';
 import { useScrollDirection } from '../../../utils/customHooks';
+import PageTransitionProvider from '../../providers/PageTransitionProvider';
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -88,15 +88,15 @@ const Header = ({ isOpen, toggleMenu }) => {
   return (
     <StyledHeader ref={headerRef}>
       <Hamburger onClick={toggleMenu} isOpen={isOpen} />
-      <Link to={'/'}>
+      <PageTransitionProvider to={'/'}>
         <StyledLogo>Nathalie Jones</StyledLogo>
-      </Link>
+      </PageTransitionProvider>
       <StyledNav>
         <StyledList>
           {navigation.map(item => (
-            <Link to={item.link} key={item.name}>
+            <PageTransitionProvider to={item.link} key={item.name}>
               <StyledListItem>{item.name}</StyledListItem>
-            </Link>
+            </PageTransitionProvider>
           ))}
         </StyledList>
       </StyledNav>

@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
 import gsap from 'gsap';
 import { pageNavigation } from '../../../utils/pageNaviagation';
+import PageTransitionProvider from '../../providers/PageTransitionProvider';
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -69,11 +69,11 @@ const MobileMenu = ({ isOpen, setOpen }) => {
     <StyledWrapper ref={wrapperRef}>
       <MenuLinkWrapper ref={menuItemsRef}>
         {pageNavigation.map(item => (
-          <Link to={item.path} key={item.name}>
+          <PageTransitionProvider to={item.path} key={item.name}>
             <StyledMenuItem onClick={() => setOpen(false)}>
               {item.name}
             </StyledMenuItem>
-          </Link>
+          </PageTransitionProvider>
         ))}
       </MenuLinkWrapper>
     </StyledWrapper>
