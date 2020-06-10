@@ -52,12 +52,13 @@ const MainDemoContent = () => (
     </ButtonWrapper>
 
     <VideoWrapper>
-      {demoArray.map(demoUrl => (
+      {demoArray.map((demoUrl, index) => (
         <Video
           videoSrcURL={demoUrl}
           videoTitle={'Nathalie Jones'}
           width={'700'}
           height={'400'}
+          key={index}
         />
       ))}
     </VideoWrapper>

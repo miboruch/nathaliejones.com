@@ -66,8 +66,13 @@ const StyledBio = styled.div`
 const Footer = () => (
   <StyledWrapper>
     <StyledIconSection>
-      {social.map(item => (
-        <a href={item.link} target='_blank' rel='noopener noreferrer'>
+      {social.map((item, index) => (
+        <a
+          href={item.link}
+          target='_blank'
+          rel='noopener noreferrer'
+          key={index}
+        >
           {item.component}
         </a>
       ))}
@@ -75,7 +80,7 @@ const Footer = () => (
     <StyledNav>
       <StyledList>
         {navigation.map(item => (
-          <PageTransitionProvider to={item.link}>
+          <PageTransitionProvider to={item.link} key={item.name}>
             <StyledListItem>{item.name}</StyledListItem>
           </PageTransitionProvider>
         ))}

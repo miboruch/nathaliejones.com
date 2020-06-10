@@ -18,5 +18,5 @@ export const pageNavigation = [
   {
     path: '/contact',
     name: 'contact'
-  },
-]
+  }
+];

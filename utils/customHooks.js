@@ -23,15 +23,13 @@ export function useScrollDirection() {
   );
   const [scrollDirection, setScrollDirection] = useState(null);
 
-  const listener = () => {
-    if (document !== undefined) {
+  useEffect(() => {
+    const listener = () => {
       setBodyOffset(document.body.getBoundingClientRect());
       setScrollDirection(lastScrollTop > -bodyOffset.top ? 'up' : 'down');
       setLastScrollTop(-bodyOffset.top);
-    }
-  };
+    };
 
-  useEffect(() => {
     window.addEventListener('scroll', listener);
     return () => {
       window.removeEventListener('scroll', listener);

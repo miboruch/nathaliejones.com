@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 const SEO = () => (
   <Helmet>
     <title>Nathalie Jones</title>
-    <html lang="pl" />
+    <html lang='pl' />
   </Helmet>
 );
 
