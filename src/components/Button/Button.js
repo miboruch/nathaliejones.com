@@ -32,7 +32,7 @@ const StyledButton = styled.button`
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #666;
+    background-color: #333;
     transition: all 0.25s ease;
     z-index: -1;
   }

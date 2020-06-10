@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
-import { convertObjectToArray } from '../../../utils/helpers';
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -130,8 +129,8 @@ const MainModelingContent = ({ mainImage, images }) => {
 };
 
 MainModelingContent.propTypes = {
-  images: PropTypes.node.isRequired,
-  mainImage: PropTypes.node.isRequired
+  images: PropTypes.any,
+  mainImage: PropTypes.any
 };
 
 export default MainModelingContent;

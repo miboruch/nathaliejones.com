@@ -117,7 +117,7 @@ const ContactContent = ({ image }) => (
 );
 
 ContactContent.propTypes = {
-  image: PropTypes.node.isRequired
+  image: PropTypes.any
 };
 
 export default ContactContent;
