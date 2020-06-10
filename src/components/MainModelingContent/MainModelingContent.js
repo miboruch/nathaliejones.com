@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -94,6 +95,25 @@ const StyledHeading = styled.h1`
 `;
 
 const MainModelingContent = ({ mainImage, images }) => {
+  const {
+    allFile: { edges }
+  } = useStaticQuery(graphql`
+    {
+      allFile(
+        filter: { extension: { eq: "pdf" }, name: { regex: "/Modeling/" } }
+      ) {
+        edges {
+          node {
+            publicURL
+            name
+          }
+        }
+      }
+    }
+  `);
+
+  console.log(edges);
+
   return (
     <StyledWrapper className={'transition-wrapper'}>
       <MainWrapper>
@@ -111,9 +131,9 @@ const MainModelingContent = ({ mainImage, images }) => {
             Angeles, California.
           </StyledParagraph>
           <ButtonWrapper>
-            <Button href={'static/Modeling.pdf'}>
-              Download modeling package
-            </Button>
+            <a href={edges[0].node.publicURL} download={edges[0].node.name}>
+              <Button>Download {edges[0].node.name}</Button>
+            </a>
           </ButtonWrapper>
         </ContentWrapper>
         <MainImage fluid={mainImage.childImageSharp.fluid} />

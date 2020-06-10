@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Button from '../Button/Button';
 import Video from '../Video/Video';
 import { demoArray } from '../../../utils/helpers';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -40,29 +41,46 @@ const VideoWrapper = styled.div`
   }
 `;
 
-const MainDemoContent = () => (
-  <StyledWrapper className={'transition-wrapper'}>
-    <ButtonWrapper>
-      <Button href='static/Acting.pdf' download='Acting Package'>
-        DOWNLOAD ACTING PACKAGE
-      </Button>
-      <Button href='static/Headshots.pdf' download='Headshots and resume'>
-        DOWNLOAD HEADSHOTS AND RESUME
-      </Button>
-    </ButtonWrapper>
+const MainDemoContent = () => {
+  const {
+    allFile: { edges }
+  } = useStaticQuery(graphql`
+    {
+      allFile(
+        filter: { extension: { eq: "pdf" }, name: { ne: "Modeling Package" } }
+      ) {
+        edges {
+          node {
+            publicURL
+            name
+          }
+        }
+      }
+    }
+  `);
 
-    <VideoWrapper>
-      {demoArray.map((demoUrl, index) => (
-        <Video
-          videoSrcURL={demoUrl}
-          videoTitle={'Nathalie Jones'}
-          width={'700'}
-          height={'400'}
-          key={index}
-        />
-      ))}
-    </VideoWrapper>
-  </StyledWrapper>
-);
+  return (
+    <StyledWrapper className={'transition-wrapper'}>
+      <ButtonWrapper>
+        {edges.map((file, index) => (
+          <a href={file.node.publicURL} download={file.node.name} key={index}>
+            <Button>DOWNLOAD {file.node.name}</Button>
+          </a>
+        ))}
+      </ButtonWrapper>
+      <VideoWrapper>
+        {demoArray.map((demoUrl, index) => (
+          <Video
+            videoSrcURL={demoUrl}
+            videoTitle={'Nathalie Jones'}
+            width={'700'}
+            height={'400'}
+            key={index}
+          />
+        ))}
+      </VideoWrapper>
+    </StyledWrapper>
+  );
+};
 
 export default MainDemoContent;

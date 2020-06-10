@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import { convertObjectToArray } from '../../../utils/helpers';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -49,17 +50,32 @@ const ButtonWrapper = styled.div`
 
 const MainActingContent = ({ image }) => {
   const imagesArray = convertObjectToArray(image);
+  const {
+    allFile: { edges }
+  } = useStaticQuery(graphql`
+    {
+      allFile(
+        filter: { extension: { eq: "pdf" }, name: { ne: "Modeling Package" } }
+      ) {
+        edges {
+          node {
+            publicURL
+            name
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <StyledWrapper className={'transition-wrapper'}>
       <ButtonWrapper>
-        <Button href={'static/Acting.pdf'} download='Acting Package'>
-          DOWNLOAD ACTING PACKAGE
-        </Button>
-        <Button href='static/Headshots.pdf' download='Headshots and resume'>
-          DOWNLOAD HEADSHOTS AND RESUME
-        </Button>
+        {edges.map((file, index) => (
+          <a href={file.node.publicURL} download={file.node.name} key={index}>
+            <Button>DOWNLOAD {file.node.name}</Button>
+          </a>
+        ))}
       </ButtonWrapper>
-
       <ImageWrapper>
         {imagesArray.map((image, index) => (
           <StyledImage fluid={image.node.childImageSharp.fluid} key={index} />
