@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -20,6 +20,18 @@ const PageWrapper = styled.div`
     justify-content: center;
     align-items: center;
   }
+`;
+
+const LoadingWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #fff;
+  transform: translateX(${({ isLoading }) => (isLoading ? '0' : '-100%')});
+  transition: transform 0.5s ease;
 `;
 
 const StyledImage = styled(Img)`
@@ -51,6 +63,7 @@ const ImageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 
   ${({ theme }) => theme.mq.standard} {
     align-items: center;
@@ -71,6 +84,7 @@ const ImageBox = styled.section`
 `;
 
 const IndexPage = ({ data }) => {
+  const [isLoading, setLoading] = useState(true);
   const imagesArray = convertObjectToArray(data);
   return (
     <Layout>
@@ -82,9 +96,13 @@ const IndexPage = ({ data }) => {
         </StyledParagraph>
         <StyledHeading>Portfolio</StyledHeading>
         <ImageWrapper>
+          <LoadingWrapper isLoading={isLoading} />
           {imagesArray.map((image, index) => (
             <ImageBox key={index}>
-              <StyledImage fluid={image.childImageSharp.fluid} />
+              <StyledImage
+                fluid={image.childImageSharp.fluid}
+                onLoad={() => setLoading(false)}
+              />
             </ImageBox>
           ))}
         </ImageWrapper>
