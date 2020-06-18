@@ -1,45 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
 import Button from '../Button/Button';
 import Video from '../Video/Video';
 import { demoArray } from '../../../utils/helpers';
 import { graphql, useStaticQuery } from 'gatsby';
-
-const StyledWrapper = styled.div`
-  width: 100%;
-  margin: auto;
-`;
-
-const ButtonWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 4rem;
-
-  ${({ theme }) => theme.mq.tablet} {
-    flex-direction: row;
-  }
-`;
-
-const VideoWrapper = styled.div`
-  width: 95%;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 4rem 0;
-
-  ${({ theme }) => theme.mq.tablet} {
-    justify-content: center;
-  }
-
-  ${({ theme }) => theme.mq.desktop} {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-`;
+import {
+  StyledWrapper,
+  ButtonWrapper,
+  VideoWrapper
+} from './MainDemoContent.styles';
 
 const MainDemoContent = () => {
   const {
