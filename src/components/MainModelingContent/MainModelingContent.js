@@ -112,8 +112,6 @@ const MainModelingContent = ({ mainImage, images }) => {
     }
   `);
 
-  console.log(edges);
-
   return (
     <StyledWrapper className={'transition-wrapper'}>
       <MainWrapper>
